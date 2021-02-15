@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/maincolor_white">
+
+    <FrameLayout
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/search_bg"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+        <EditText
+            android:id="@+id/searchEdit"
+            android:background="@null"
+            android:cursorVisible="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textSize="14sp"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"/>
+
+        <LinearLayout
+            android:id="@+id/lltSearchTip"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/main_search"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/tvSearchTip"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="@string/main_gods_economy"
+                android:textColorHint="@color/maincolor_BFBFBF"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:layout_marginLeft="2dp"/>
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

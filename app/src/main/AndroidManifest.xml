@@ -21,7 +21,8 @@
         <activity android:name=".ui.MainActivityKt"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

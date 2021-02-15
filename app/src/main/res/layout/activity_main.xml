@@ -2,15 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.md.livingstreamsound.custom.LivingFrameLayout
+    <com.md.livingstreamsound.customer.LivingFrameLayout
         android:id="@+id/rootContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <com.md.livingstreamsound.custom.LivingViewPager
+        <com.md.livingstreamsound.customer.LivingViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </com.md.livingstreamsound.custom.LivingFrameLayout>
+    </com.md.livingstreamsound.customer.LivingFrameLayout>
 
 </FrameLayout>

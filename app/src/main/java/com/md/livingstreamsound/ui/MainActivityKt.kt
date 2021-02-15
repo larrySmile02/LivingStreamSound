@@ -14,6 +14,7 @@ import com.md.livingstreamsound.test.Fragment1
 import com.md.livingstreamsound.test.Fragment2
 import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
+import com.md.mainpage.MainPageFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -60,7 +61,7 @@ class MainActivityKt:AppCompatActivity(),Runnable {
 
 
     private fun initView(){
-        fragments.add(Fragment1())
+        fragments.add(MainPageFragment())
         fragments.add(Fragment2())
         fragments.add(Fragment3())
         fragments.add(Fragment4())

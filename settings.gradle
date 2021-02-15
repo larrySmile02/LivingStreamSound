@@ -1,2 +1,3 @@
+include ':mainpage'
 include ':app'
 rootProject.name = "LivingStreamSound"

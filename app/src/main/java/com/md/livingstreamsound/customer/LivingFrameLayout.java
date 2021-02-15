@@ -1,4 +1,4 @@
-package com.md.livingstreamsound.custom;
+package com.md.livingstreamsound.customer;
 
 import android.content.Context;
 import android.os.Build;
