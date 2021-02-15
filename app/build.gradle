@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions' //扩展插件
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
@@ -21,6 +20,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    buildFeatures {
+
+        dataBinding true
+
     }
 }
 

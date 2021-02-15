@@ -14,7 +14,7 @@ import com.md.livingstreamsound.test.Fragment1
 import com.md.livingstreamsound.test.Fragment2
 import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
-import kotlinx.android.synthetic.main.activity_main_kt.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * @author liyue
@@ -36,7 +36,7 @@ class MainActivityKt:AppCompatActivity(),Runnable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_kt)
+        setContentView(R.layout.activity_main)
         initView()
     }
 
@@ -57,6 +57,8 @@ class MainActivityKt:AppCompatActivity(),Runnable {
         isExit=false
     }
 
+
+
     private fun initView(){
         fragments.add(Fragment1())
         fragments.add(Fragment2())
@@ -65,6 +67,9 @@ class MainActivityKt:AppCompatActivity(),Runnable {
 
         mainAdapter= MainAdapter(supportFragmentManager,fragments)
         viewPager.adapter=mainAdapter
+        viewPager.setCanScroll(true)
+        rootContainer.setViewPager(viewPager)
+
 
     }
 
