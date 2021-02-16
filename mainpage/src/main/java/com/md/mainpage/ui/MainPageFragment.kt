@@ -15,22 +15,25 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.md.mainpage.R
 import com.md.mainpage.adapter.CategoryAdapter
-import com.md.mainpage.model.MainCategoryModel
+import com.md.mainpage.adapter.MainDailySupplyAdapter
+import com.md.mainpage.model.MainPageModel
 import com.md.mainpage.model.bean.FakeCategoryBean
 import com.md.mainpage.utils.Utils
 import kotlinx.android.synthetic.main.fragment_mainpage.*
 
-const val MAIN_REC_COLUM = 4
+const val MAIN_REC_COLUM_CATEGORY = 4
+const val MAIN_REC_COLUM_DAILY=3
 /**
  * @author liyue
  * created 2021/2/16
  * 主页面-首页
  * */
 class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatcher {
-
-    var categoryModel: MainCategoryModel? = null
-    var categoryData: List<FakeCategoryBean> = ArrayList<FakeCategoryBean>()
+    var mainPageModel: MainPageModel?=null
+    var categoryData: List<FakeCategoryBean> = ArrayList()
     var categoryAdapter: CategoryAdapter? =null
+    var dailySupplyData:List<FakeCategoryBean> = ArrayList()
+    var dailySupplyAdapter:MainDailySupplyAdapter?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,18 +85,26 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
     }
 
     inline fun initData() {
-        categoryModel = MainCategoryModel()
-        categoryData = categoryModel!!.getMainCategory()
+        mainPageModel = MainPageModel()
+        categoryData = mainPageModel!!.getMainCategory()
+        dailySupplyData = mainPageModel!!.getMainDailySupplyData()
+
     }
 
     inline fun initView() {
         searchEdit.setOnEditorActionListener(this)
         searchEdit.addTextChangedListener(this)
-        val layoutManager = GridLayoutManager(activity, MAIN_REC_COLUM)
+        val layoutManager = GridLayoutManager(activity, MAIN_REC_COLUM_CATEGORY)
         recMainCategory.layoutManager = layoutManager
         categoryAdapter=CategoryAdapter(activity!!, categoryData)
         recMainCategory.adapter = categoryAdapter
         categoryAdapter!!.setData(categoryData)
+
+        val dailyLayoutManager = GridLayoutManager(activity, MAIN_REC_COLUM_DAILY)
+        recDailySupply.layoutManager=dailyLayoutManager
+        dailySupplyAdapter= MainDailySupplyAdapter(activity!!,dailySupplyData)
+        recDailySupply.adapter=dailySupplyAdapter
+        dailySupplyAdapter!!.setData(dailySupplyData)
     }
 
     private val viewList = ArrayList<View>()
