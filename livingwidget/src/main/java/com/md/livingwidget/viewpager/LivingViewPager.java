@@ -1,4 +1,4 @@
-package com.md.livingstreamsound.customer;
+package com.md.livingwidget.viewpager;
 
 import android.content.Context;
 import android.util.AttributeSet;

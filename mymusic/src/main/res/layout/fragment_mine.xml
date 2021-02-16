@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <!--以下title栏-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="44dp">
@@ -27,7 +29,7 @@
             android:layout_marginRight="15dp"/>
 
     </FrameLayout>
-
+    <!--以下本地下载 最近播放栏-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="98dp">
@@ -84,5 +86,33 @@
         android:layout_width="match_parent"
         android:layout_height="10dp"
         android:background="@color/mine_f4f5f6"/>
+
+    <!--以下收藏专辑 自建专辑栏-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+        <com.md.livingwidget.indicator.SmartTabLayout
+            android:id="@+id/smartTab"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingBottom="4dp"
+            app:stl_defaultTabTextColor="@color/mine_262626"
+            app:stl_indicatorColor="@color/mine_colorAccent"
+            app:stl_indicatorCornerRadius="1.5dp"
+            app:stl_indicatorWidth="20dp"
+            app:stl_indicatorInterpolation="smart"
+            app:stl_indicatorThickness="3dp"
+            app:stl_underlineColor="@color/mine_transparent"
+            app:stl_distributeEvenly="true"/>
+
+    </FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mine_E9E9E9"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/albumViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

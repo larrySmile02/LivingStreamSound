@@ -1,10 +1,8 @@
-package com.md.livingstreamsound.customer;
+package com.md.livingwidget.viewgroup;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
@@ -12,20 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
+import com.md.livingwidget.viewpager.LivingViewPager;
+
 /**
  * @author liyue
  * @created 2021/2/15
  * desc 为了首页面自定义ViewPager只能滑动到设置的位置,规则是：
  * 1. 当前在"首页"tab上ViewPager可以滑动
  * 2. 当前在"我听"tab上
- *    1）手指向左滑动，禁止ViewPager滑动
- *    2）手指向右滑动，且超过半屏，允许ViewPager滑动
- *    3）手指向右滑动，未超过半屏，禁止ViewPager滑动
+ * 1）手指向左滑动，禁止ViewPager滑动
+ * 2）手指向右滑动，允许ViewPager滑动
  * 注意有个bug，最低版本android 5 /api=21
  */
 public class LivingFrameLayout extends FrameLayout {
     private static final String TAG = "LivingFrameLayout";
-    /**设置的item，自定义ViewPager只能滑动到这个值*/
+    /**
+     * 设置的item，自定义ViewPager只能滑动到这个值
+     */
     private int maxFragmentPos = 1;
     private static final int INVALID_POINTER = -1;
     private int mActivePointerId = INVALID_POINTER;
@@ -73,24 +74,24 @@ public class LivingFrameLayout extends FrameLayout {
                 final float x = event.getX();
                 final float dx = x - mLastMotionX;
                 if (viewPager != null) {
-                    if (dx < 0) isMoveLeft = true;
-                    else isMoveLeft=false;
+                    if (dx <= 0) isMoveLeft = true;
+                    else isMoveLeft = false;
 
-//                    if (viewPager.getCurrentItem() >= maxFragmentPos && isMoveLeft ){
-//                        viewPager.setCanScroll(false);
-//                    } else  {
-//                            viewPager.setCanScroll(true);
-//                    }
-
-                    if(viewPager.getCurrentItem()<maxFragmentPos) {
+                    if (viewPager.getCurrentItem() >= maxFragmentPos && isMoveLeft) {
+                        viewPager.setCanScroll(false);
+                    } else {
                         viewPager.setCanScroll(true);
-                    }else {
-                        if(isMoveLeft) viewPager.setCanScroll(false);
-                        else {
-                            if(isHalfMore((int) Math.abs(dx))) viewPager.setCanScroll(true);
-                           else viewPager.setCanScroll(false);
-                        }
                     }
+
+//                    if(viewPager.getCurrentItem()<maxFragmentPos) {
+//                        viewPager.setCanScroll(true);
+//                    }else {
+//                        if(isMoveLeft) viewPager.setCanScroll(false);
+//                        else {
+//                            if(isHalfMore((int) Math.abs(dx))) viewPager.setCanScroll(true);
+//                           else viewPager.setCanScroll(false);
+//                        }
+//                    }
                 }
 
                 break;
@@ -116,17 +117,17 @@ public class LivingFrameLayout extends FrameLayout {
         return super.onInterceptTouchEvent(event);
     }
 
-    private boolean isHalfMore(int abs){
-       int W=getWidth();
-       if(abs>W/2) return true;
-       else return false;
+    private boolean isHalfMore(int abs) {
+        int W = getWidth();
+        if (abs > W / 2) return true;
+        else return false;
     }
 
     public void setViewPager(LivingViewPager viewPager) {
         this.viewPager = viewPager;
     }
 
-    public void setMaxFragmentPos(int maxFragmentPos){
+    public void setMaxFragmentPos(int maxFragmentPos) {
         this.maxFragmentPos = maxFragmentPos;
     }
 }

@@ -3,4 +3,8 @@
     <color name="mine_262626">#262626</color>
     <color name="mine_595959">#595959</color>
     <color name="mine_f4f5f6">#F4F5F6</color>
+    <color name="mine_white">#ffffff</color>
+    <color name="mine_colorAccent">#12C286</color>
+    <color name="mine_transparent">#00000000</color>
+    <color name="mine_E9E9E9">#E9E9E9</color>
 </resources>

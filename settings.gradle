@@ -1,3 +1,4 @@
+include ':livingwidget'
 include ':mymusic'
 include ':basedpc'
 include ':mainpage'
