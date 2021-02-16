@@ -16,6 +16,7 @@ import com.md.livingstreamsound.R
 import com.md.livingstreamsound.test.Fragment2
 import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
+import com.md.mainpage.`interface`.IMainInfo
 import com.md.mainpage.ui.MainPageFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,10 +33,11 @@ private const val TAG="MainActivityKt"
 private const val MAIN_PAGE_POS=0;
 //首页在ViewPager中的position
 private const val MINE_POS=1
-class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListener,View.OnClickListener {
+class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListener,View.OnClickListener ,IMainInfo{
 
     private val fragments = ArrayList<Fragment>()
     private lateinit var mainAdapter: MainAdapter
+    private var isShowSearch=false
 
     //防止关闭Activity后Handler还未执行完造成内存泄露
     companion object{
@@ -52,6 +54,11 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(isShowSearch){
+          val mainFragment =  fragments[0] as MainPageFragment
+            mainFragment.onBackPressed()
+            return false
+        }
         if (keyCode == KeyEvent.KEYCODE_BACK){
             if(!isExit) {
                 isExit=true
@@ -100,7 +107,9 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
     }
 
     private fun initView(){
-        fragments.add(MainPageFragment())
+        val mainFrt=MainPageFragment()
+        mainFrt.setIMainInfo(this)
+        fragments.add(mainFrt)
         fragments.add(Fragment2())
         fragments.add(Fragment3())
         fragments.add(Fragment4())
@@ -145,6 +154,10 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
            return fragmentList.size
         }
 
+    }
+
+    override fun getSearchStatus(isShowMain: Boolean) {
+        isShowSearch=!isShowMain
     }
 
 

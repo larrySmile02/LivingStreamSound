@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/maincolor_white">
-
+    <!--以下首页搜索栏-->
     <FrameLayout
         android:layout_marginTop="4dp"
         android:layout_width="match_parent"
@@ -50,6 +50,8 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <!--以下第一个RecyclerView展示分类，第二个RecyclerView展示每日必听-->
     <LinearLayout
         android:id="@+id/lltMainContent"
         android:orientation="vertical"
@@ -120,11 +122,12 @@
 
     </LinearLayout>
 
+    <!--以下点击顶部搜索栏才显示-->
     <LinearLayout
         android:id="@+id/lltSearchContent"
         android:visibility="gone"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
         <TextView
             android:layout_width="match_parent"
