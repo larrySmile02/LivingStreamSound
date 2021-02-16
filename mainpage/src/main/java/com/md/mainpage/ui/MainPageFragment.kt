@@ -21,7 +21,11 @@ import com.md.mainpage.utils.Utils
 import kotlinx.android.synthetic.main.fragment_mainpage.*
 
 const val MAIN_REC_COLUM = 4
-
+/**
+ * @author liyue
+ * created 2021/2/16
+ * 主页面-首页
+ * */
 class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatcher {
 
     var categoryModel: MainCategoryModel? = null

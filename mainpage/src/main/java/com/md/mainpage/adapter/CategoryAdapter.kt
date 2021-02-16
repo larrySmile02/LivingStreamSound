@@ -9,7 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.md.mainpage.R
 import com.md.mainpage.model.bean.FakeCategoryBean
-
+/**
+ * @author liyue
+ * created 2021/2/16
+ * desc 首页面分类部分adapter
+ */
 class CategoryAdapter(var context: Context,var mData:List<FakeCategoryBean>):RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {

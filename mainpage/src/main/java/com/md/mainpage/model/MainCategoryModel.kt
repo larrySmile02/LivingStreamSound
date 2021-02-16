@@ -3,6 +3,11 @@ package com.md.mainpage.model
 import com.md.mainpage.R
 import com.md.mainpage.model.bean.FakeCategoryBean
 
+/**
+ * @author liyue
+ * @created 2021/2/16
+ * desc 获取首页面分类数据，坤阳说数据从云端取。现在写死为了测试UI，以后云端接口通了就从云端请求
+ */
 class MainCategoryModel {
 
     private val categoryBeans = ArrayList<FakeCategoryBean>()
