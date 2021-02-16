@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mine_my">我听</string>
+    <string name="mine_local_music">本地音频</string>
+    <string name="mine_recent_play">最近播放</string>
+</resources>

@@ -46,6 +46,7 @@ dependencies {
 
     implementation project(':basedpc')
     implementation project(':mainpage')
+    implementation project(':mymusic')
 
 }
 repositories {

@@ -18,6 +18,7 @@ import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
 import com.md.mainpage.`interface`.IMainInfo
 import com.md.mainpage.ui.MainPageFragment
+import com.md.mymusic.MyMusicFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -114,7 +115,7 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
         val mainFrt=MainPageFragment()
         mainFrt.setIMainInfo(this)
         fragments.add(mainFrt)
-        fragments.add(Fragment2())
+        fragments.add(MyMusicFragment())
         fragments.add(Fragment3())
         fragments.add(Fragment4())
 
