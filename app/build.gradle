@@ -15,17 +15,25 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file("mdzs.jks")
+            storePassword "meidi1234!"
+            keyAlias "mdzsalias"
+            keyPassword "meidi1234!"
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     buildFeatures {
-
         dataBinding true
-
     }
 }
 
