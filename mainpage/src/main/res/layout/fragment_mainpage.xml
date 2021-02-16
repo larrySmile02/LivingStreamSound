@@ -50,6 +50,89 @@
         </LinearLayout>
 
     </FrameLayout>
+    <LinearLayout
+        android:id="@+id/lltMainContent"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/maincolor_white">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recMainCategory"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="23dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/maincolor_F4F5F6"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="16dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/main_supply_daily"
+                android:textSize="17sp"
+                android:textColor="@color/maincolor_262626"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"/>
+
+            <LinearLayout
+                android:id="@+id/lltMoreContent"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:layout_gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/main_more"
+                    android:textColor="@color/maincolor_8c8c8c"
+                    android:textSize="14sp"
+                    android:gravity="center"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/main_more"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="2dp"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recDailySupply"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lltSearchContent"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="这是搜索区"/>
+
+    </LinearLayout>
 
 
 

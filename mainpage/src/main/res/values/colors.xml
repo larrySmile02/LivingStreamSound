@@ -3,4 +3,8 @@
     <color name="maincolor_F4F5F6">#F4F5F6</color>
     <color name="maincolor_BFBFBF">#BFBFBF</color>
     <color name="maincolor_white">#ffffff</color>
+    <color name="maincolor_333333">#333333</color>
+    <color name="maincolor_262626">#262626</color>
+    <color name="maincolor_8c8c8c">#8C8C8C</color>
+    <color name="maincolor_595959">#595959</color>
 </resources>

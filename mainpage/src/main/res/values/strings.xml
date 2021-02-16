@@ -2,4 +2,6 @@
 <resources>
     <string name="main_gods_economy">神永远的经纶</string>
     <string name="main_input_valid_world">请输入有效内容</string>
+    <string name="main_supply_daily">每日必听</string>
+    <string name="main_more">更多</string>
 </resources>
