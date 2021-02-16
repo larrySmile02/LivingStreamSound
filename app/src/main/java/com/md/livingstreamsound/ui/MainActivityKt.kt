@@ -3,12 +3,15 @@ package com.md.livingstreamsound.ui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.KeyEvent
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.md.livingstreamsound.R
 import com.md.livingstreamsound.test.Fragment2
 import com.md.livingstreamsound.test.Fragment3
@@ -20,8 +23,16 @@ import kotlinx.android.synthetic.main.activity_main.*
  * @author liyue
  * created 2021/2/15
  * desc 作为主页面，内部由ViewPager+FragmentPagerAdapter组成
+ * 遗留问题：
+ * 1. 每日必听向上滑动时分类应该跟着滑上去，以后再做
+ * 2. RecyclerView应该配合DiffUtil局部刷新的，以后再做
  */
-class MainActivityKt:AppCompatActivity(),Runnable {
+private const val TAG="MainActivityKt"
+//首页在ViewPager中的position
+private const val MAIN_PAGE_POS=0;
+//首页在ViewPager中的position
+private const val MINE_POS=1
+class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListener,View.OnClickListener {
 
     private val fragments = ArrayList<Fragment>()
     private lateinit var mainAdapter: MainAdapter
@@ -56,8 +67,37 @@ class MainActivityKt:AppCompatActivity(),Runnable {
     override fun run() {
         isExit=false
     }
+    override fun onPageScrollStateChanged(state: Int) {
+    }
 
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+    }
 
+    override fun onPageSelected(position: Int) {
+        if (position==MAIN_PAGE_POS) {
+            selectMainPage(true)
+            selectMine(false)
+        }else{
+            selectMainPage(false)
+            selectMine(true)
+        }
+        Log.e(TAG, "pos=$position")
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.lltMainBtn -> {
+                viewPager.setCurrentItem(MAIN_PAGE_POS,true)
+                selectMainPage(true)
+                selectMine(false)
+            }
+            R.id.lltMineBtn -> {
+                viewPager.setCurrentItem(MINE_POS,true)
+                selectMainPage(false)
+                selectMine(true)
+            }
+        }
+    }
 
     private fun initView(){
         fragments.add(MainPageFragment())
@@ -69,8 +109,25 @@ class MainActivityKt:AppCompatActivity(),Runnable {
         viewPager.adapter=mainAdapter
         viewPager.setCanScroll(true)
         rootContainer.setViewPager(viewPager)
+        viewPager.addOnPageChangeListener(this)
+        selectMainPage(true)
+        selectMine(false)
+
+        lltMineBtn.setOnClickListener(this)
+        lltMainBtn.setOnClickListener(this)
 
 
+    }
+
+    private inline fun selectMainPage(isSel: Boolean ){
+        ivMainpageBtn.isSelected=isSel
+        tvMainpageTitle.setTextColor(if (isSel)resources.getColor(R.color.colorAccent) else resources.getColor(R.color.living_262626))
+
+    }
+
+    private inline fun selectMine(isSel: Boolean){
+        ivMineBtn.isSelected=isSel
+        tvMineTitle.setTextColor(if (isSel)resources.getColor(R.color.colorAccent) else resources.getColor(R.color.living_262626))
     }
 
     class MainAdapter:FragmentPagerAdapter{
