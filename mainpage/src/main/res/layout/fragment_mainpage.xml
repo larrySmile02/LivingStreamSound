@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/maincolor_white">
@@ -19,7 +18,7 @@
             android:cursorVisible="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="10dp"
+            android:layout_marginLeft="30dp"
             android:paddingRight="10dp"
             android:textSize="14sp"
             android:imeOptions="actionSearch"
@@ -30,14 +29,13 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:layout_gravity="center">
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
                 android:src="@drawable/main_search"
-                android:scaleType="fitCenter"
-                android:layout_gravity="center_vertical"/>
+                android:scaleType="fitCenter"/>
             <TextView
                 android:id="@+id/tvSearchTip"
                 android:layout_width="wrap_content"
@@ -49,6 +47,29 @@
                 android:layout_marginLeft="2dp"/>
         </LinearLayout>
 
+        <FrameLayout
+            android:id="@+id/ivCancelContainer"
+            android:visibility="gone"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/main_search_cancel"
+                android:layout_gravity="left|center_vertical"/>
+        </FrameLayout>
+        
+        <ImageView
+            android:id="@+id/ivLeftSearchIcon"
+            android:visibility="gone"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/main_search"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="12dp"/>
+
     </FrameLayout>
 
     <!--以下第一个RecyclerView展示分类，第二个RecyclerView展示每日必听-->
@@ -57,6 +78,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
         android:background="@color/maincolor_white">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recMainCategory"
@@ -125,18 +147,21 @@
     <!--以下点击顶部搜索栏才显示-->
     <LinearLayout
         android:id="@+id/lltSearchContent"
-        android:visibility="gone"
+        android:layout_marginTop="40dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:background="@color/maincolor_white80">
         <TextView
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:textSize="16sp"
+            android:gravity="center"
             android:text="这是搜索区"/>
 
     </LinearLayout>
 
 
 
-</LinearLayout>
+</FrameLayout>

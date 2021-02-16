@@ -106,6 +106,10 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
         }
     }
 
+    override fun getSearchStatus(isShowMain: Boolean) {
+        isShowSearch=!isShowMain
+    }
+
     private fun initView(){
         val mainFrt=MainPageFragment()
         mainFrt.setIMainInfo(this)
@@ -154,10 +158,6 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
            return fragmentList.size
         }
 
-    }
-
-    override fun getSearchStatus(isShowMain: Boolean) {
-        isShowSearch=!isShowMain
     }
 
 
