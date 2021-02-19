@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.md.livingstreamsound"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -54,6 +54,8 @@ dependencies {
     implementation project(':mainpage')
     implementation project(':mymusic')
     implementation project(':livingwidget')
+    implementation project(':network')
+
 
 }
 repositories {
