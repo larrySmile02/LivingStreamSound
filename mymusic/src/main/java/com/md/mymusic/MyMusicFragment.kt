@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import kotlinx.android.synthetic.main.fragment_mine.*
-
+/**
+ * @author liyue
+ * desc "我听" Fragment
+ */
 class MyMusicFragment:Fragment() {
     private val fragments = ArrayList<Fragment>()
     private lateinit var albumAdapter: AlbumAdapter

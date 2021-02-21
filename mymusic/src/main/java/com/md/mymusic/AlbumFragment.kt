@@ -6,7 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_my_build.*
-
+/**
+ * @author liyue
+ * created 2021/2/21
+ * desc 自建专辑与收藏专辑Fragment
+ */
 class AlbumFragment:Fragment() {
     //是否我我创建的专辑
     private var isMine=true

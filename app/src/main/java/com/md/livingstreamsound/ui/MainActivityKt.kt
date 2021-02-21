@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.md.livingstreamsound.R
-import com.md.livingstreamsound.test.Fragment2
 import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
 import com.md.mainpage.`interface`.IMainInfo
