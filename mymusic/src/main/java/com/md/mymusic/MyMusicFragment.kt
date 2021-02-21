@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.md.mymusic.test.FragmentB
 import kotlinx.android.synthetic.main.fragment_mine.*
 
 class MyMusicFragment:Fragment() {
