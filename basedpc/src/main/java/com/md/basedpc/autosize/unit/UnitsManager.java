@@ -17,7 +17,8 @@ package com.md.basedpc.autosize.unit;
 
 import android.util.DisplayMetrics;
 
-import com.yxt.phutils.autosize.utils.Preconditions;
+import com.md.basedpc.autosize.utils.Preconditions;
+
 
 /**
  * ================================================

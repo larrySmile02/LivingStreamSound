@@ -6,15 +6,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.md.basedpc.R;
+import com.md.basedpc.application.AppManager;
 import com.qw.soul.permission.PermissionTools;
 import com.qw.soul.permission.SoulPermission;
 import com.qw.soul.permission.bean.Permission;
 import com.qw.soul.permission.callbcak.GoAppDetailCallBack;
-import com.yxt.basic_frame.R;
-import com.yxt.basic_frame.application.AppManager;
-import com.yxt.basic_frame.permission.router.NotificationPermissionService;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 
@@ -66,7 +63,6 @@ public class PermissionUtils {
         if (permission == null) {
             return null;
         }
-
         return new PermissionStatus(permission.permissionName, getPermissionFlag(permission.isGranted()), permission.shouldRationale());
     }
 
@@ -74,12 +70,10 @@ public class PermissionUtils {
         if (permissions == null) {
             return null;
         }
-
         PermissionStatus[] permissionStatuses = new PermissionStatus[permissions.length];
         for (int i = 0; i < permissions.length; i++) {
             permissionStatuses[i] = createPermission(permissions[i]);
         }
-
         return permissionStatuses;
     }
 
@@ -91,10 +85,10 @@ public class PermissionUtils {
         }
     }
 
-    public static void showNotificationGuideDialog() {
-        NotificationPermissionService service = (NotificationPermissionService) ARouter.getInstance().build("/permission/notification_guide").navigation();
-        service.showNotificationPermissionDialog();
-    }
+//    public static void showNotificationGuideDialog() {
+//        NotificationPermissionService service = (NotificationPermissionService) ARouter.getInstance().build("/permission/notification_guide").navigation();
+//        service.showNotificationPermissionDialog();
+//    }
 
     public static boolean isAllPermissionGrant(@NonNull String[] permissions) {
         PermissionStatus[] permissionStatuses = getPermissionStatus(permissions);
@@ -121,67 +115,67 @@ public class PermissionUtils {
         }
     }
 
-    public static String getPermissionDesc(Context context, String permission) {
-        String desc;
-        switch (permission) {
-            case Manifest.permission_group.CAMERA:
-            case Manifest.permission.CAMERA:
-                desc = context.getString(R.string.common_yxt_lbl_cameraname);
-                break;
-            case Manifest.permission_group.CONTACTS:
-            case Manifest.permission.READ_CONTACTS:
-            case Manifest.permission.WRITE_CONTACTS:
-            case Manifest.permission.GET_ACCOUNTS:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_contactname);
-                break;
-            case Manifest.permission_group.PHONE:
-            case Manifest.permission.CALL_PHONE:
-            case Manifest.permission.READ_CALL_LOG:
-            case Manifest.permission.WRITE_CALL_LOG:
-            case Manifest.permission.ADD_VOICEMAIL:
-            case Manifest.permission.USE_SIP:
-            case Manifest.permission.PROCESS_OUTGOING_CALLS:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_callname);
-                break;
-            case Manifest.permission_group.STORAGE:
-            case Manifest.permission.WRITE_EXTERNAL_STORAGE:
-            case Manifest.permission.READ_EXTERNAL_STORAGE:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_storagename);
-                break;
-            case Manifest.permission_group.LOCATION:
-            case Manifest.permission.ACCESS_FINE_LOCATION:
-            case Manifest.permission.ACCESS_COARSE_LOCATION:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_locationname);
-                break;
-            case Manifest.permission.READ_PHONE_STATE:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_phonestatusname);
-                break;
-            case Manifest.permission_group.CALENDAR:
-            case Manifest.permission.READ_CALENDAR:
-            case Manifest.permission.WRITE_CALENDAR:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_calendername);
-                break;
-            case Manifest.permission_group.MICROPHONE:
-            case Manifest.permission.RECORD_AUDIO:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_audioname);
-                break;
-            case Manifest.permission_group.SENSORS:
-            case Manifest.permission.BODY_SENSORS:
-                desc = context.getResources().getString(R.string.common_yxt_lbl_sensorname);
-                break;
-            case Manifest.permission_group.SMS:
-            case Manifest.permission.SEND_SMS:
-            case Manifest.permission.RECEIVE_SMS:
-            case Manifest.permission.READ_SMS:
-            case Manifest.permission.RECEIVE_WAP_PUSH:
-            case Manifest.permission.RECEIVE_MMS:
-                desc = context.getString(R.string.common_yxt_lbl_smsname);
-                break;
-            default:
-                desc = context.getString(R.string.common_yxt_lbl_undefinename);
-                break;
-        }
-        return desc;
-    }
+//    public static String getPermissionDesc(Context context, String permission) {
+//        String desc;
+//        switch (permission) {
+//            case Manifest.permission_group.CAMERA:
+//            case Manifest.permission.CAMERA:
+//                desc = context.getString(R.string.common_yxt_lbl_cameraname);
+//                break;
+//            case Manifest.permission_group.CONTACTS:
+//            case Manifest.permission.READ_CONTACTS:
+//            case Manifest.permission.WRITE_CONTACTS:
+//            case Manifest.permission.GET_ACCOUNTS:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_contactname);
+//                break;
+//            case Manifest.permission_group.PHONE:
+//            case Manifest.permission.CALL_PHONE:
+//            case Manifest.permission.READ_CALL_LOG:
+//            case Manifest.permission.WRITE_CALL_LOG:
+//            case Manifest.permission.ADD_VOICEMAIL:
+//            case Manifest.permission.USE_SIP:
+//            case Manifest.permission.PROCESS_OUTGOING_CALLS:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_callname);
+//                break;
+//            case Manifest.permission_group.STORAGE:
+//            case Manifest.permission.WRITE_EXTERNAL_STORAGE:
+//            case Manifest.permission.READ_EXTERNAL_STORAGE:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_storagename);
+//                break;
+//            case Manifest.permission_group.LOCATION:
+//            case Manifest.permission.ACCESS_FINE_LOCATION:
+//            case Manifest.permission.ACCESS_COARSE_LOCATION:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_locationname);
+//                break;
+//            case Manifest.permission.READ_PHONE_STATE:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_phonestatusname);
+//                break;
+//            case Manifest.permission_group.CALENDAR:
+//            case Manifest.permission.READ_CALENDAR:
+//            case Manifest.permission.WRITE_CALENDAR:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_calendername);
+//                break;
+//            case Manifest.permission_group.MICROPHONE:
+//            case Manifest.permission.RECORD_AUDIO:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_audioname);
+//                break;
+//            case Manifest.permission_group.SENSORS:
+//            case Manifest.permission.BODY_SENSORS:
+//                desc = context.getResources().getString(R.string.common_yxt_lbl_sensorname);
+//                break;
+//            case Manifest.permission_group.SMS:
+//            case Manifest.permission.SEND_SMS:
+//            case Manifest.permission.RECEIVE_SMS:
+//            case Manifest.permission.READ_SMS:
+//            case Manifest.permission.RECEIVE_WAP_PUSH:
+//            case Manifest.permission.RECEIVE_MMS:
+//                desc = context.getString(R.string.common_yxt_lbl_smsname);
+//                break;
+//            default:
+//                desc = context.getString(R.string.common_yxt_lbl_undefinename);
+//                break;
+//        }
+//        return desc;
+//    }
 
 }

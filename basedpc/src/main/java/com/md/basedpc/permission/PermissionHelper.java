@@ -3,16 +3,16 @@ package com.md.basedpc.permission;
 import android.Manifest;
 import android.os.Build;
 
+import com.md.basedpc.PHStringUtils;
+import com.md.basedpc.permission.listener.OnPermissionListener;
+import com.md.basedpc.persistence.PHSPUtil;
 import com.qw.soul.permission.SoulPermission;
 import com.qw.soul.permission.bean.Permission;
 import com.qw.soul.permission.bean.Permissions;
 import com.qw.soul.permission.bean.Special;
 import com.qw.soul.permission.callbcak.CheckRequestPermissionsListener;
-import com.yxt.basic_frame.permission.listener.OnPermissionListener;
-import com.yxt.basic_frame.persistence.PHSPUtil;
-import com.yxt.phutils.PHStringUtils;
 
-import static com.yxt.basic_frame.permission.PermissionUtils.createPermission;
+import static com.md.basedpc.permission.PermissionUtils.createPermission;
 
 /**
  * @CreateDate: 2020/1/6 13:20
@@ -76,21 +76,21 @@ public class PermissionHelper {
         return false;
     }
 
-    /**
-     * 请求通知权限，App默认是有通知权限的，如果用户关闭后，一个月最多请求一次
-     */
-    public static void requestNotificationPermissionIfNeed() {
-        boolean hasPermission = SoulPermission.getInstance().checkSpecialPermission(Special.NOTIFICATION);
-        if (!hasPermission) {
-            long lastRequestTime = PHSPUtil.getInstance().getLong("last_notification_request_time");
-            long monthMillis = 30 * 24 * 60 * 60 * 1000L;
-            long currentTime = System.currentTimeMillis();
-            if (currentTime - lastRequestTime > monthMillis) {
-                PHSPUtil.getInstance().putLong("last_notification_request_time", currentTime);
-                PermissionUtils.showNotificationGuideDialog();
-            }
-        }
-    }
+//    /**
+//     * 请求通知权限，App默认是有通知权限的，如果用户关闭后，一个月最多请求一次
+//     */
+//    public static void requestNotificationPermissionIfNeed() {
+//        boolean hasPermission = SoulPermission.getInstance().checkSpecialPermission(Special.NOTIFICATION);
+//        if (!hasPermission) {
+//            long lastRequestTime = PHSPUtil.getInstance().getLong("last_notification_request_time");
+//            long monthMillis = 30 * 24 * 60 * 60 * 1000L;
+//            long currentTime = System.currentTimeMillis();
+//            if (currentTime - lastRequestTime > monthMillis) {
+//                PHSPUtil.getInstance().putLong("last_notification_request_time", currentTime);
+//                PermissionUtils.showNotificationGuideDialog();
+//            }
+//        }
+//    }
 
     /**
      * 获取手机存储权限
@@ -125,7 +125,7 @@ public class PermissionHelper {
      * @param listener
      */
     public static void requestAudioPermission(OnPermissionListener listener, boolean openPermissionGuideAfterDeny) {
-        checkAndRequestPermission(new String[]{Manifest.permission.RECORD_AUDIO}, listener,openPermissionGuideAfterDeny);
+        checkAndRequestPermission(new String[]{Manifest.permission.RECORD_AUDIO}, listener, openPermissionGuideAfterDeny);
     }
 
     /**

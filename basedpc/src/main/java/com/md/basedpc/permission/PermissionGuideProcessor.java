@@ -1,11 +1,7 @@
 package com.md.basedpc.permission;
 
-import com.alibaba.android.arouter.facade.Postcard;
-import com.alibaba.android.arouter.facade.callback.NavCallback;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.yxt.basic_frame.application.AppManager;
-import com.yxt.basic_frame.permission.listener.OnPermissionListener;
-import com.yxt.phutils.PHStringUtils;
+import com.md.basedpc.PHStringUtils;
+import com.md.basedpc.permission.listener.OnPermissionListener;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -51,33 +47,33 @@ public class PermissionGuideProcessor {
         }
 
         String permission = refusedPermission[index].permissionName;
-        if (!PermissionUtils.isPermissionGrant(permission)) {
-            ARouter.getInstance().build("/permission/permission_guide")
-                    .withString("permission", permission)
-                    .withString("tag", tag)
-                    .navigation(AppManager.getAppManager().currentActivity(), new NavCallback() {
-                        @Override
-                        public void onArrival(Postcard postcard) {
-                        }
-
-                        @Override
-                        public void onFound(Postcard postcard) {
-                        }
-
-                        @Override
-                        public void onLost(Postcard postcard) {
-                            sendCallback();
-                        }
-
-                        @Override
-                        public void onInterrupt(Postcard postcard) {
-                            sendCallback();
-                        }
-                    });
-        } else {
-            index++;
-            proceed();
-        }
+//        if (!PermissionUtils.isPermissionGrant(permission)) {
+//            ARouter.getInstance().build("/permission/permission_guide")
+//                    .withString("permission", permission)
+//                    .withString("tag", tag)
+//                    .navigation(AppManager.getAppManager().currentActivity(), new NavCallback() {
+//                        @Override
+//                        public void onArrival(Postcard postcard) {
+//                        }
+//
+//                        @Override
+//                        public void onFound(Postcard postcard) {
+//                        }
+//
+//                        @Override
+//                        public void onLost(Postcard postcard) {
+//                            sendCallback();
+//                        }
+//
+//                        @Override
+//                        public void onInterrupt(Postcard postcard) {
+//                            sendCallback();
+//                        }
+//                    });
+//        } else {
+//            index++;
+//            proceed();
+//        }
     }
 
     @SuppressWarnings("unused")

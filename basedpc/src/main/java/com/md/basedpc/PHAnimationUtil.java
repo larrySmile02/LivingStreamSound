@@ -10,7 +10,7 @@ import android.view.animation.TranslateAnimation;
  * description：
  */
 public class PHAnimationUtil {
-    private static final String TAG = com.yxt.phutils.PHAnimationUtil.class.getSimpleName();
+    private static final String TAG = PHAnimationUtil.class.getSimpleName();
     private static int time = 300;
 
     public static void setTime(int times) {

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 
-import com.yxt.basic_frame.log.Log;
+import com.md.basedpc.log.Log;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;

@@ -321,16 +321,16 @@ public class PHUtils {
         return wan;
     }
 
-    /**
-     * 格式化时间（输出类似于 刚刚, 4分钟前, 一小时前, 昨天这样的时间）
-     *
-     * @param context Context
-     * @param time    需要格式化的时间 如"2014-07-14 19:01:45"
-     * @return time为null，或者时间格式不匹配，输出空字符""
-     */
-    public static String formatDisplayTime(Context context, String time) {
-        return formatDisplayTime(context, time, "yyyy-MM-dd HH:mm:ss");
-    }
+//    /**
+//     * 格式化时间（输出类似于 刚刚, 4分钟前, 一小时前, 昨天这样的时间）
+//     *
+//     * @param context Context
+//     * @param time    需要格式化的时间 如"2014-07-14 19:01:45"
+//     * @return time为null，或者时间格式不匹配，输出空字符""
+//     */
+//    public static String formatDisplayTime(Context context, String time) {
+//        return formatDisplayTime(context, time, "yyyy-MM-dd HH:mm:ss");
+//    }
 
     /**
      * 格式化时间（输出类似于 刚刚, 4分钟前, 一小时前, 昨天这样的时间）
@@ -341,53 +341,53 @@ public class PHUtils {
      *                <p/>如果为空则默认使用"yyyy-MM-dd HH:mm:ss"格式
      * @return time为null，或者时间格式不匹配，输出空字符""
      */
-    public static String formatDisplayTime(Context context, String time, String pattern) {
-        String display = "";
-        int tMin = 60 * 1000;
-        int tHour = 60 * tMin;
-        int tDay = 24 * tHour;
-
-        if (time != null) {
-            try {
-                Date tDate = new SimpleDateFormat(pattern).parse(time);
-                Date today = new Date();
-                //年
-                SimpleDateFormat thisYearDf = new SimpleDateFormat("yyyy");
-                //今天的日期
-                SimpleDateFormat todayDf = new SimpleDateFormat("yyyy-MM-dd");
-                Date thisYear = new Date(thisYearDf.parse(thisYearDf.format(today)).getTime());
-                //昨天
-                Date yesterday = new Date(todayDf.parse(todayDf.format(today)).getTime() - tDay);
-                //前天
-                Date beforeYes = new Date(yesterday.getTime() - tDay);
-                //大前天
-                Date beforeYes1 = new Date(beforeYes.getTime() - tDay);
-                if (tDate != null) {
-                    SimpleDateFormat halfDf = new SimpleDateFormat("MM-dd HH:mm");
-                    long dTime = today.getTime() - tDate.getTime();
-                    if (tDate.before(thisYear)) {
-                        display = new SimpleDateFormat("yyyy-MM-dd").format(tDate);
-                    } else {
-                        if (dTime < tMin) {
-                            // display = context.getString(R.string.common_yxt_lbl_datajust);
-                            display = 1 + context.getString(R.string.common_yxt_lbl_minutesago);
-                        } else if (dTime < tHour) {
-                            display = (int) Math.ceil(dTime / tMin) + context.getString(R.string.common_yxt_lbl_minutesago);
-                        } else if (dTime < tDay && tDate.after(yesterday)) {
-                            display = (int) Math.ceil(dTime / tHour) + context.getString(R.string.common_yxt_lbl_hoursago);
-                        } else if (tDate.after(beforeYes1) && tDate.before(yesterday)) {
-                            display = (int) Math.ceil(dTime / tDay) + context.getString(R.string.common_yxt_lbl_daysago);
-                        } else {
-                            display = halfDf.format(tDate);
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                Log.e("PHUtils", e.getMessage());
-            }
-        }
-        return display;
-    }
+//    public static String formatDisplayTime(Context context, String time, String pattern) {
+//        String display = "";
+//        int tMin = 60 * 1000;
+//        int tHour = 60 * tMin;
+//        int tDay = 24 * tHour;
+//
+//        if (time != null) {
+//            try {
+//                Date tDate = new SimpleDateFormat(pattern).parse(time);
+//                Date today = new Date();
+//                //年
+//                SimpleDateFormat thisYearDf = new SimpleDateFormat("yyyy");
+//                //今天的日期
+//                SimpleDateFormat todayDf = new SimpleDateFormat("yyyy-MM-dd");
+//                Date thisYear = new Date(thisYearDf.parse(thisYearDf.format(today)).getTime());
+//                //昨天
+//                Date yesterday = new Date(todayDf.parse(todayDf.format(today)).getTime() - tDay);
+//                //前天
+//                Date beforeYes = new Date(yesterday.getTime() - tDay);
+//                //大前天
+//                Date beforeYes1 = new Date(beforeYes.getTime() - tDay);
+//                if (tDate != null) {
+//                    SimpleDateFormat halfDf = new SimpleDateFormat("MM-dd HH:mm");
+//                    long dTime = today.getTime() - tDate.getTime();
+//                    if (tDate.before(thisYear)) {
+//                        display = new SimpleDateFormat("yyyy-MM-dd").format(tDate);
+//                    } else {
+//                        if (dTime < tMin) {
+//                            // display = context.getString(R.string.common_yxt_lbl_datajust);
+//                            display = 1 + context.getString(R.string.common_yxt_lbl_minutesago);
+//                        } else if (dTime < tHour) {
+//                            display = (int) Math.ceil(dTime / tMin) + context.getString(R.string.common_yxt_lbl_minutesago);
+//                        } else if (dTime < tDay && tDate.after(yesterday)) {
+//                            display = (int) Math.ceil(dTime / tHour) + context.getString(R.string.common_yxt_lbl_hoursago);
+//                        } else if (tDate.after(beforeYes1) && tDate.before(yesterday)) {
+//                            display = (int) Math.ceil(dTime / tDay) + context.getString(R.string.common_yxt_lbl_daysago);
+//                        } else {
+//                            display = halfDf.format(tDate);
+//                        }
+//                    }
+//                }
+//            } catch (Exception e) {
+//                Log.e("PHUtils", e.getMessage());
+//            }
+//        }
+//        return display;
+//    }
 
     // 判断程序是否在后台
     public static boolean isBackground(Context context) {

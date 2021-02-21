@@ -1,6 +1,7 @@
 package com.md.basedpc.permission.listener;
 
-import com.yxt.basic_frame.permission.PermissionStatus;
+
+import com.md.basedpc.permission.PermissionStatus;
 
 /**
  * @CreateDate: 2020/1/8 14:26

@@ -1,4 +1,4 @@
-package com.md.basedpc.mvpbase;
+package com.md.basedpc.base;
 
 import android.app.Activity;
 import android.content.Context;

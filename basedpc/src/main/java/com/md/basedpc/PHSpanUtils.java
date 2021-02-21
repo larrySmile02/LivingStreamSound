@@ -44,7 +44,8 @@ import android.text.style.UpdateAppearance;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.yxt.phutils.autosize.AutoSizeConfig;
+
+import com.md.basedpc.autosize.AutoSizeConfig;
 
 import java.io.InputStream;
 import java.lang.annotation.Retention;
@@ -209,9 +210,9 @@ public final class PHSpanUtils {
      *             <li>{@link Spanned#SPAN_EXCLUSIVE_EXCLUSIVE}</li>
      *             <li>{@link Spanned#SPAN_EXCLUSIVE_INCLUSIVE}</li>
      *             </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setFlag(final int flag) {
+    public PHSpanUtils setFlag(final int flag) {
         this.flag = flag;
         return this;
     }
@@ -220,9 +221,9 @@ public final class PHSpanUtils {
      * Set the span of foreground's color.
      *
      * @param color The color of foreground
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setForegroundColor(@ColorInt final int color) {
+    public PHSpanUtils setForegroundColor(@ColorInt final int color) {
         this.foregroundColor = color;
         return this;
     }
@@ -231,9 +232,9 @@ public final class PHSpanUtils {
      * Set the span of background's color.
      *
      * @param color The color of background
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setBackgroundColor(@ColorInt final int color) {
+    public PHSpanUtils setBackgroundColor(@ColorInt final int color) {
         this.backgroundColor = color;
         return this;
     }
@@ -242,9 +243,9 @@ public final class PHSpanUtils {
      * Set the span of line height.
      *
      * @param lineHeight The line height, in pixel.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setLineHeight(@IntRange(from = 0) final int lineHeight) {
+    public PHSpanUtils setLineHeight(@IntRange(from = 0) final int lineHeight) {
         return setLineHeight(lineHeight, ALIGN_CENTER);
     }
 
@@ -258,9 +259,9 @@ public final class PHSpanUtils {
      *                   <li>{@link Align#ALIGN_CENTER}</li>
      *                   <li>{@link Align#ALIGN_BOTTOM}</li>
      *                   </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setLineHeight(@IntRange(from = 0) final int lineHeight,
+    public PHSpanUtils setLineHeight(@IntRange(from = 0) final int lineHeight,
                                                      @Align final int align) {
         this.lineHeight = lineHeight;
         this.alignLine = align;
@@ -271,9 +272,9 @@ public final class PHSpanUtils {
      * Set the span of quote's color.
      *
      * @param color The color of quote
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setQuoteColor(@ColorInt final int color) {
+    public PHSpanUtils setQuoteColor(@ColorInt final int color) {
         return setQuoteColor(color, 2, 2);
     }
 
@@ -283,9 +284,9 @@ public final class PHSpanUtils {
      * @param color       The color of quote.
      * @param stripeWidth The width of stripe, in pixel.
      * @param gapWidth    The width of gap, in pixel.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setQuoteColor(@ColorInt final int color,
+    public PHSpanUtils setQuoteColor(@ColorInt final int color,
                                                      @IntRange(from = 1) final int stripeWidth,
                                                      @IntRange(from = 0) final int gapWidth) {
         this.quoteColor = color;
@@ -299,9 +300,9 @@ public final class PHSpanUtils {
      *
      * @param first The indent for the first line of the paragraph.
      * @param rest  The indent for the remaining lines of the paragraph.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setLeadingMargin(@IntRange(from = 0) final int first,
+    public PHSpanUtils setLeadingMargin(@IntRange(from = 0) final int first,
                                                         @IntRange(from = 0) final int rest) {
         this.first = first;
         this.rest = rest;
@@ -312,9 +313,9 @@ public final class PHSpanUtils {
      * Set the span of bullet.
      *
      * @param gapWidth The width of gap, in pixel.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setBullet(@IntRange(from = 0) final int gapWidth) {
+    public PHSpanUtils setBullet(@IntRange(from = 0) final int gapWidth) {
         return setBullet(0, 3, gapWidth);
     }
 
@@ -324,9 +325,9 @@ public final class PHSpanUtils {
      * @param color    The color of bullet.
      * @param radius   The radius of bullet, in pixel.
      * @param gapWidth The width of gap, in pixel.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single { link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setBullet(@ColorInt final int color,
+    public PHSpanUtils setBullet(@ColorInt final int color,
                                                  @IntRange(from = 0) final int radius,
                                                  @IntRange(from = 0) final int gapWidth) {
         this.bulletColor = color;
@@ -339,9 +340,9 @@ public final class PHSpanUtils {
      * Set the span of font's size.
      *
      * @param size The size of font.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setFontSize(@IntRange(from = 0) final int size) {
+    public PHSpanUtils setFontSize(@IntRange(from = 0) final int size) {
         return setFontSize(size, false);
     }
 
@@ -350,9 +351,9 @@ public final class PHSpanUtils {
      *
      * @param size The size of font.
      * @param isSp True to use sp, false to use pixel.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setFontSize(@IntRange(from = 0) final int size, final boolean isSp) {
+    public PHSpanUtils setFontSize(@IntRange(from = 0) final int size, final boolean isSp) {
         this.fontSize = size;
         this.fontSizeIsDp = isSp;
         return this;
@@ -362,9 +363,9 @@ public final class PHSpanUtils {
      * Set the span of proportion of font.
      *
      * @param proportion The proportion of font.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setFontProportion(final float proportion) {
+    public PHSpanUtils setFontProportion(final float proportion) {
         this.proportion = proportion;
         return this;
     }
@@ -373,9 +374,9 @@ public final class PHSpanUtils {
      * Set the span of transverse proportion of font.
      *
      * @param proportion The transverse proportion of font.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setFontXProportion(final float proportion) {
+    public PHSpanUtils setFontXProportion(final float proportion) {
         this.xProportion = proportion;
         return this;
     }
@@ -383,9 +384,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of strikethrough.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setStrikethrough() {
+    public PHSpanUtils setStrikethrough() {
         this.isStrikethrough = true;
         return this;
     }
@@ -393,9 +394,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of underline.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setUnderline() {
+    public PHSpanUtils setUnderline() {
         this.isUnderline = true;
         return this;
     }
@@ -403,9 +404,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of superscript.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setSuperscript() {
+    public PHSpanUtils setSuperscript() {
         this.isSuperscript = true;
         return this;
     }
@@ -413,9 +414,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of subscript.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setSubscript() {
+    public PHSpanUtils setSubscript() {
         this.isSubscript = true;
         return this;
     }
@@ -423,9 +424,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of bold.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setBold() {
+    public PHSpanUtils setBold() {
         isBold = true;
         return this;
     }
@@ -433,9 +434,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of italic.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setItalic() {
+    public PHSpanUtils setItalic() {
         isItalic = true;
         return this;
     }
@@ -443,9 +444,9 @@ public final class PHSpanUtils {
     /**
      * Set the span of bold italic.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setBoldItalic() {
+    public PHSpanUtils setBoldItalic() {
         isBoldItalic = true;
         return this;
     }
@@ -459,9 +460,9 @@ public final class PHSpanUtils {
      *                   <li>serif</li>
      *                   <li>sans-serif</li>
      *                   </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setFontFamily(@NonNull final String fontFamily) {
+    public PHSpanUtils setFontFamily(@NonNull final String fontFamily) {
         this.fontFamily = fontFamily;
         return this;
     }
@@ -470,9 +471,9 @@ public final class PHSpanUtils {
      * Set the span of typeface.
      *
      * @param typeface The typeface.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setTypeface(@NonNull final Typeface typeface) {
+    public PHSpanUtils setTypeface(@NonNull final Typeface typeface) {
         this.typeface = typeface;
         return this;
     }
@@ -486,9 +487,9 @@ public final class PHSpanUtils {
      *                  <li>{@link Alignment#ALIGN_OPPOSITE}</li>
      *                  <li>{@link Alignment#ALIGN_CENTER  }</li>
      *                  </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setHorizontalAlign(@NonNull final Alignment alignment) {
+    public PHSpanUtils setHorizontalAlign(@NonNull final Alignment alignment) {
         this.alignment = alignment;
         return this;
     }
@@ -503,9 +504,9 @@ public final class PHSpanUtils {
      *              <li>{@link Align#ALIGN_BASELINE}</li>
      *              <li>{@link Align#ALIGN_BOTTOM  }</li>
      *              </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setVerticalAlign(@Align final int align) {
+    public PHSpanUtils setVerticalAlign(@Align final int align) {
         this.verticalAlign = align;
         return this;
     }
@@ -515,9 +516,9 @@ public final class PHSpanUtils {
      * <p>Must set {@code view.setMovementMethod(LinkMovementMethod.getInstance())}</p>
      *
      * @param clickSpan The span of click.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setClickSpan(@NonNull final ClickableSpan clickSpan) {
+    public PHSpanUtils setClickSpan(@NonNull final ClickableSpan clickSpan) {
         if (mTextView != null && mTextView.getMovementMethod() == null) {
             mTextView.setMovementMethod(LinkMovementMethod.getInstance());
         }
@@ -530,9 +531,9 @@ public final class PHSpanUtils {
      * <p>Must set {@code view.setMovementMethod(LinkMovementMethod.getInstance())}</p>
      *
      * @param url The url.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setUrl(@NonNull final String url) {
+    public PHSpanUtils setUrl(@NonNull final String url) {
         if (mTextView != null && mTextView.getMovementMethod() == null) {
             mTextView.setMovementMethod(LinkMovementMethod.getInstance());
         }
@@ -551,9 +552,9 @@ public final class PHSpanUtils {
      *               <li>{@link Blur#OUTER}</li>
      *               <li>{@link Blur#INNER}</li>
      *               </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setBlur(@FloatRange(from = 0, fromInclusive = false) final float radius,
+    public PHSpanUtils setBlur(@FloatRange(from = 0, fromInclusive = false) final float radius,
                                                final Blur style) {
         this.blurRadius = radius;
         this.style = style;
@@ -564,9 +565,9 @@ public final class PHSpanUtils {
      * Set the span of shader.
      *
      * @param shader The shader.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setShader(@NonNull final Shader shader) {
+    public PHSpanUtils setShader(@NonNull final Shader shader) {
         this.shader = shader;
         return this;
     }
@@ -578,9 +579,9 @@ public final class PHSpanUtils {
      * @param dx          X-axis offset, in pixel.
      * @param dy          Y-axis offset, in pixel.
      * @param shadowColor The color of shadow.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setShadow(@FloatRange(from = 0, fromInclusive = false) final float radius,
+    public PHSpanUtils setShadow(@FloatRange(from = 0, fromInclusive = false) final float radius,
                                                  final float dx,
                                                  final float dy,
                                                  final int shadowColor) {
@@ -596,9 +597,9 @@ public final class PHSpanUtils {
      * Set the spans.
      *
      * @param spans The spans.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils setSpans(@NonNull final Object... spans) {
+    public PHSpanUtils setSpans(@NonNull final Object... spans) {
         if (spans.length > 0) {
             this.spans = spans;
         }
@@ -609,9 +610,9 @@ public final class PHSpanUtils {
      * Append the text text.
      *
      * @param text The text.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils append(@NonNull final CharSequence text) {
+    public PHSpanUtils append(@NonNull final CharSequence text) {
         apply(mTypeCharSequence);
         mText = text;
         return this;
@@ -620,9 +621,9 @@ public final class PHSpanUtils {
     /**
      * Append one line.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendLine() {
+    public PHSpanUtils appendLine() {
         apply(mTypeCharSequence);
         mText = LINE_SEPARATOR;
         return this;
@@ -631,9 +632,9 @@ public final class PHSpanUtils {
     /**
      * Append text and one line.
      *
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendLine(@NonNull final CharSequence text) {
+    public PHSpanUtils appendLine(@NonNull final CharSequence text) {
         apply(mTypeCharSequence);
         mText = text + LINE_SEPARATOR;
         return this;
@@ -643,9 +644,9 @@ public final class PHSpanUtils {
      * Append one image.
      *
      * @param bitmap The bitmap of image.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@NonNull final Bitmap bitmap) {
+    public PHSpanUtils appendImage(@NonNull final Bitmap bitmap) {
         return appendImage(bitmap, ALIGN_BOTTOM);
     }
 
@@ -660,9 +661,9 @@ public final class PHSpanUtils {
      *               <li>{@link Align#ALIGN_BASELINE}</li>
      *               <li>{@link Align#ALIGN_BOTTOM  }</li>
      *               </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@NonNull final Bitmap bitmap, @Align final int align) {
+    public PHSpanUtils appendImage(@NonNull final Bitmap bitmap, @Align final int align) {
         apply(mTypeImage);
         this.imageBitmap = bitmap;
         this.alignImage = align;
@@ -673,9 +674,9 @@ public final class PHSpanUtils {
      * Append one image.
      *
      * @param drawable The drawable of image.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@NonNull final Drawable drawable) {
+    public PHSpanUtils appendImage(@NonNull final Drawable drawable) {
         return appendImage(drawable, ALIGN_BOTTOM);
     }
 
@@ -690,9 +691,9 @@ public final class PHSpanUtils {
      *                 <li>{@link Align#ALIGN_BASELINE}</li>
      *                 <li>{@link Align#ALIGN_BOTTOM  }</li>
      *                 </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@NonNull final Drawable drawable, @Align final int align) {
+    public PHSpanUtils appendImage(@NonNull final Drawable drawable, @Align final int align) {
         apply(mTypeImage);
         this.imageDrawable = drawable;
         this.alignImage = align;
@@ -703,9 +704,9 @@ public final class PHSpanUtils {
      * Append one image.
      *
      * @param uri The uri of image.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@NonNull final Uri uri) {
+    public PHSpanUtils appendImage(@NonNull final Uri uri) {
         return appendImage(uri, ALIGN_BOTTOM);
     }
 
@@ -720,9 +721,9 @@ public final class PHSpanUtils {
      *              <li>{@link Align#ALIGN_BASELINE}</li>
      *              <li>{@link Align#ALIGN_BOTTOM  }</li>
      *              </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@NonNull final Uri uri, @Align final int align) {
+    public PHSpanUtils appendImage(@NonNull final Uri uri, @Align final int align) {
         apply(mTypeImage);
         this.imageUri = uri;
         this.alignImage = align;
@@ -733,9 +734,9 @@ public final class PHSpanUtils {
      * Append one image.
      *
      * @param resourceId The resource id of image.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@DrawableRes final int resourceId) {
+    public PHSpanUtils appendImage(@DrawableRes final int resourceId) {
         return appendImage(resourceId, ALIGN_BOTTOM);
     }
 
@@ -750,9 +751,9 @@ public final class PHSpanUtils {
      *                   <li>{@link Align#ALIGN_BASELINE}</li>
      *                   <li>{@link Align#ALIGN_BOTTOM  }</li>
      *                   </ul>
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendImage(@DrawableRes final int resourceId, @Align final int align) {
+    public PHSpanUtils appendImage(@DrawableRes final int resourceId, @Align final int align) {
         apply(mTypeImage);
         this.imageResourceId = resourceId;
         this.alignImage = align;
@@ -763,9 +764,9 @@ public final class PHSpanUtils {
      * Append space.
      *
      * @param size The size of space.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendSpace(@IntRange(from = 0) final int size) {
+    public PHSpanUtils appendSpace(@IntRange(from = 0) final int size) {
         return appendSpace(size, Color.TRANSPARENT);
     }
 
@@ -774,9 +775,9 @@ public final class PHSpanUtils {
      *
      * @param size  The size of space.
      * @param color The color of space.
-     * @return the single {@link com.yxt.phutils.PHSpanUtils} instance
+     * @return the single {@link PHSpanUtils} instance
      */
-    public com.yxt.phutils.PHSpanUtils appendSpace(@IntRange(from = 0) final int size, @ColorInt final int color) {
+    public PHSpanUtils appendSpace(@IntRange(from = 0) final int size, @ColorInt final int color) {
         apply(mTypeSpace);
         spaceSize = size;
         spaceColor = color;
@@ -1431,7 +1432,7 @@ public final class PHSpanUtils {
     // static
     ///////////////////////////////////////////////////////////////////////////
 
-    public static com.yxt.phutils.PHSpanUtils with(final TextView textView) {
-        return new com.yxt.phutils.PHSpanUtils(textView);
+    public static PHSpanUtils with(final TextView textView) {
+        return new PHSpanUtils(textView);
     }
 }

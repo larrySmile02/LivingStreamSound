@@ -100,7 +100,7 @@ public final class PHNetworkUtils {
         if (ip == null || ip.length() <= 0) {
             ip = "223.5.5.5";// default ping ip
         }
-        com.yxt.phutils.PHShellUtils.CommandResult result = com.yxt.phutils.PHShellUtils.execCmd(String.format("ping -c 1 %s", ip), false);
+        PHShellUtils.CommandResult result = PHShellUtils.execCmd(String.format("ping -c 1 %s", ip), false);
         boolean ret = result.result == 0;
         if (result.errorMsg != null) {
             Log.d("NetworkUtils", "isAvailableByPing() called" + result.errorMsg);

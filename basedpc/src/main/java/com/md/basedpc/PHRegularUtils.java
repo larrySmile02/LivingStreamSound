@@ -24,10 +24,10 @@ public class PHRegularUtils {
     }
 
     private static class LazyHolder {
-        private static final com.yxt.phutils.PHRegularUtils INSTANCE = new com.yxt.phutils.PHRegularUtils();
+        private static final PHRegularUtils INSTANCE = new PHRegularUtils();
     }
 
-    public static final com.yxt.phutils.PHRegularUtils getInstance() {
+    public static final PHRegularUtils getInstance() {
         return LazyHolder.INSTANCE;
     }
 

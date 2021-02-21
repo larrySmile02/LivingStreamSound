@@ -184,12 +184,12 @@ public class PHBarUtils {
                 Window window = activity.getWindow();
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(activity.getResources().getColor(R.color.white));
+                window.setStatusBarColor(Color.parseColor("#ffffff"));
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 //使用SystemBarTint库使4.4版本状态栏变色，需要先将状态栏设置为透明
-                com.yxt.phutils.SystemBarTintManager tintManager = new com.yxt.phutils.SystemBarTintManager(activity);
+                SystemBarTintManager tintManager = new SystemBarTintManager(activity);
                 tintManager.setStatusBarTintEnabled(true);
-                tintManager.setStatusBarTintColor(activity.getResources().getColor(R.color.white));
+                tintManager.setStatusBarTintColor(Color.parseColor("#ffffff"));
             }
         }
         setStatusBarLightMode(activity.getWindow(), true);
@@ -211,9 +211,9 @@ public class PHBarUtils {
                 window.setStatusBarColor(color);
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 //使用SystemBarTint库使4.4版本状态栏变色，需要先将状态栏设置为透明
-                com.yxt.phutils.SystemBarTintManager tintManager = new com.yxt.phutils.SystemBarTintManager(activity);
+                SystemBarTintManager tintManager = new SystemBarTintManager(activity);
                 tintManager.setStatusBarTintEnabled(true);
-                tintManager.setStatusBarTintColor(activity.getResources().getColor(R.color.white));
+                tintManager.setStatusBarTintColor(Color.parseColor("#ffffff"));
             }
         setStatusBarLightMode(activity.getWindow(), true);
     }
@@ -239,12 +239,12 @@ public class PHBarUtils {
                 Window window = activity.getWindow();
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(activity.getResources().getColor(R.color.black));
+                window.setStatusBarColor(Color.parseColor("#000000"));
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 //使用SystemBarTint库使4.4版本状态栏变色，需要先将状态栏设置为透明
-                com.yxt.phutils.SystemBarTintManager tintManager = new com.yxt.phutils.SystemBarTintManager(activity);
+                SystemBarTintManager tintManager = new SystemBarTintManager(activity);
                 tintManager.setStatusBarTintEnabled(true);
-                tintManager.setStatusBarTintColor(activity.getResources().getColor(R.color.black));
+                tintManager.setStatusBarTintColor(Color.parseColor("#000000"));
             }
         }
         setStatusBarLightMode(activity.getWindow(), false);
@@ -384,7 +384,7 @@ public class PHBarUtils {
             if (isImmersive) {
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 int visibility = window.getDecorView().getSystemUiVisibility();
-                window.setStatusBarColor(context.getResources().getColor(R.color.transparent));
+                window.setStatusBarColor(Color.parseColor("#00000000"));
                 visibility |= View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
                 visibility |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
                 window.getDecorView().setSystemUiVisibility(visibility);
