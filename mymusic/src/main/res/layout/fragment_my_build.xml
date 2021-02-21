@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fltBuildAlbum"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/tvMyAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:textColor="@color/mine_262626"
+            android:text="@string/mine_my_album"
+            android:gravity="left|center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:gravity="center_vertical">
+            <ImageView
+                android:id="@+id/ivPlusAlbum"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/mine_plus"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="16dp"/>
+
+            <ImageView
+                android:id="@+id/ivAlbumMore"
+                android:visibility="gone"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/mine_album_more"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/fltBuildAlbum"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/ivEmptyAlbum"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="107dp"
+            android:layout_height="92dp"
+            android:src="@drawable/mine_empty_album"
+            android:scaleType="fitCenter"/>
+        <TextView
+            app:layout_constraintTop_toBottomOf="@id/ivEmptyAlbum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="16sp"
+            android:textColor="@color/mine_595959"
+            android:text="@string/mine_no_album"
+            android:singleLine="true"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recMyAlbum"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/fltBuildAlbum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
