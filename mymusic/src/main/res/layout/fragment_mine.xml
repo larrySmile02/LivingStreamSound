@@ -102,14 +102,12 @@
             app:stl_indicatorWidth="20dp"
             app:stl_indicatorInterpolation="smart"
             app:stl_indicatorThickness="3dp"
-            app:stl_underlineColor="@color/mine_transparent"
+            app:stl_underlineColor="@color/transparent"
             app:stl_distributeEvenly="true"/>
 
     </FrameLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/mine_E9E9E9"/>
+
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/albumViewPager"
         android:layout_width="match_parent"

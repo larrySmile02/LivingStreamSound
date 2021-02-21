@@ -6,4 +6,5 @@
     <string name="mine_my_album">自建专辑</string>
     <string name="mine_save_album">收藏专辑</string>
     <string name="mine_no_album">暂无自建的专辑</string>
+    <string name="mine_no_restore">暂无收藏的专辑</string>
 </resources>

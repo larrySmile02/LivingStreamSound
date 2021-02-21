@@ -23,8 +23,8 @@ class MyMusicFragment:Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mContext= this!!.context!!
-        fragments.add(MyBuildAlbumFragment())
-        fragments.add(FragmentB())
+        fragments.add(AlbumFragment.getInstance(true))
+        fragments.add(AlbumFragment.getInstance(false))
         albumAdapter = AlbumAdapter(activity!!.supportFragmentManager,fragments)
         albumViewPager.adapter=albumAdapter
         smartTab.setViewPager(albumViewPager)
