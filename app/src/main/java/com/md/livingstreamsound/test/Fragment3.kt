@@ -13,7 +13,6 @@ class Fragment3:Fragment() {
     private val currentF = "Fragment3"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e(TAG,"$currentF onCreate")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -29,26 +28,21 @@ class Fragment3:Fragment() {
 
     override fun onStart() {
         super.onStart()
-        Log.e(TAG,"$currentF onStart")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.e(TAG,"$currentF onResume")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.e(TAG,"$currentF onPause")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.e(TAG,"$currentF onStop")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.e(TAG,"$currentF onDestroy")
     }
 }

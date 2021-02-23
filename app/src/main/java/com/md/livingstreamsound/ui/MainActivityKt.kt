@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.md.basedpc.permission.PermissionHelper
+import com.md.basedpc.permission.PermissionStatus
+import com.md.basedpc.permission.listener.OnPermissionListener
 import com.md.livingstreamsound.R
 import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
@@ -33,7 +36,7 @@ private const val TAG="MainActivityKt"
 private const val MAIN_PAGE_POS=0;
 //首页在ViewPager中的position
 private const val MINE_POS=1
-class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListener,View.OnClickListener ,IMainInfo{
+class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListener,View.OnClickListener ,IMainInfo, OnPermissionListener {
 
     private val fragments = ArrayList<Fragment>()
     private lateinit var mainAdapter: MainAdapter
@@ -51,6 +54,8 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
+        PermissionHelper.requestNecessaryPermission(this,true)
+
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
@@ -157,6 +162,18 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
         override fun getCount(): Int {
            return fragmentList.size
         }
+
+    }
+
+    override fun onPermissionGranted(permissions: Array<out PermissionStatus>?) {
+
+    }
+
+    override fun onPermissionDeniedImmediate(permissions: Array<out PermissionStatus>?) {
+
+    }
+
+    override fun onPermissionDenied(permissions: Array<out PermissionStatus>?) {
 
     }
 

@@ -17,11 +17,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.md.basedpc.DisplayUtil
 import com.md.mainpage.R
 import com.md.mainpage.`interface`.IMainInfo
+import com.md.mainpage.`interface`.MainPageContract
 import com.md.mainpage.adapter.CategoryAdapter
 import com.md.mainpage.adapter.MainDailySupplyAdapter
 import com.md.mainpage.model.MainPageModel
 import com.md.mainpage.model.bean.FakeCategoryBean
+import com.md.mainpage.presenter.MainPagePresenter
 import com.md.mainpage.utils.Utils
+import com.md.network.api.Category
 import kotlinx.android.synthetic.main.fragment_mainpage.*
 
 const val TAG = "MainPageFragment"
@@ -40,7 +43,7 @@ const val HEIGHT_SEARCH = 36f
  * created 2021/2/16
  * 主页面-首页
  * */
-class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatcher, View.OnClickListener {
+class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatcher, View.OnClickListener ,MainPageContract.View{
     var mainPageModel: MainPageModel? = null
     var categoryData: List<FakeCategoryBean> = ArrayList()
     var categoryAdapter: CategoryAdapter? = null
@@ -50,6 +53,13 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
     //true:当前在展示分类和每日必听，false:当前在展示搜索区
     private var isShowMain = true
     private var iInfo: IMainInfo? = null
+    private val mPresenter by lazy{
+        MainPagePresenter()
+    }
+
+    init {
+        mPresenter.attachView(this)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return LayoutInflater.from(activity).inflate(R.layout.fragment_mainpage, container, false)
@@ -59,10 +69,12 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
         super.onViewCreated(view, savedInstanceState)
         initData()
         initView()
+        requestData()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        mPresenter.detachView()
     }
 
     override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
@@ -227,6 +239,18 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
             searchEdit.text = null
         }
 
+    }
+
+    private fun requestData(){
+        mPresenter.getCateDetailList()
+    }
+
+    override fun setCateDetailList(categories: ArrayList<Category>) {
+        Log.e(TAG,"${categories.size}")
+    }
+
+    override fun showError(errorMsg: String) {
+        Log.e(TAG,"$errorMsg")
     }
 
 

@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.disposables.Disposable
  * created 2021/2/21
  * desc Presenter基类，协程还不熟，先用Rxjava顶上
  * */
-class BasePresenter<T : IBaseView> : IPresenter<T> {
+open class BasePresenter<T : IBaseView> : IPresenter<T> {
     var mRootView: T? = null
         private set
 
