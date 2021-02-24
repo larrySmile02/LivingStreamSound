@@ -22,5 +22,25 @@ class MainPagePresenter : BasePresenter<MainPageContract.View>(), MainPageContra
                         showError(throwable.toString())
                     }
                 })
+
+        disposable?.let { addSubscription(it) }
     }
+
+    override fun getDailyAlbums() {
+        checkViewAttached()
+        val disposable = mainpageModel.getDailyAlbums()
+                .subscribe({ albums ->
+                    mRootView?.apply {
+                        setDailyAlbums(albums)
+                    }
+                }, { throwable ->
+                    mRootView?.apply {
+                        showError(throwable.toString())
+                    }
+                })
+
+        disposable?.let { addSubscription(it) }
+    }
+
+
 }

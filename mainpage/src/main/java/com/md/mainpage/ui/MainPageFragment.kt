@@ -24,6 +24,7 @@ import com.md.mainpage.model.MainPageModel
 import com.md.mainpage.model.bean.FakeCategoryBean
 import com.md.mainpage.presenter.MainPagePresenter
 import com.md.mainpage.utils.Utils
+import com.md.network.api.Album
 import com.md.network.api.Category
 import kotlinx.android.synthetic.main.fragment_mainpage.*
 
@@ -45,10 +46,10 @@ const val HEIGHT_SEARCH = 36f
  * */
 class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatcher, View.OnClickListener ,MainPageContract.View{
     var mainPageModel: MainPageModel? = null
-    var categoryData: List<FakeCategoryBean> = ArrayList()
-    var categoryAdapter: CategoryAdapter? = null
-    var dailySupplyData: List<FakeCategoryBean> = ArrayList()
-    var dailySupplyAdapter: MainDailySupplyAdapter? = null
+    var categoryData: List<Category> = ArrayList()
+    private var categoryAdapter: CategoryAdapter? = null
+    private var dailySupplyData: List<Album> = ArrayList()
+    private var dailySupplyAdapter: MainDailySupplyAdapter? = null
 
     //true:当前在展示分类和每日必听，false:当前在展示搜索区
     private var isShowMain = true
@@ -125,8 +126,6 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
 
     private inline fun initData() {
         mainPageModel = MainPageModel()
-        categoryData = mainPageModel!!.getMainCategory()
-        dailySupplyData = mainPageModel!!.getMainDailySupplyData()
 
     }
 
@@ -138,13 +137,11 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
         recMainCategory.layoutManager = layoutManager
         categoryAdapter = CategoryAdapter(activity!!, categoryData)
         recMainCategory.adapter = categoryAdapter
-        categoryAdapter!!.setData(categoryData)
 
         val dailyLayoutManager = GridLayoutManager(activity, MAIN_REC_COLUM_DAILY)
         recDailySupply.layoutManager = dailyLayoutManager
         dailySupplyAdapter = MainDailySupplyAdapter(activity!!, dailySupplyData)
         recDailySupply.adapter = dailySupplyAdapter
-        dailySupplyAdapter!!.setData(dailySupplyData)
 
         ivCancelContainer.setOnClickListener(this)
     }
@@ -160,18 +157,18 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
      * @param isShow true展示分类和每日必听，false展示搜索列表
      */
     private inline fun showMainContent(isShow: Boolean) {
-        if (isShow) {
+        isShowMain = if (isShow) {
 //            lltMainContent.visibility = View.VISIBLE
 //            lltSearchContent.visibility = View.GONE
             if(isShowMain)return
             hideSearchZoneAnimation()
-            isShowMain = true
+            true
         } else {
 //            lltMainContent.visibility = View.GONE
 //            lltSearchContent.visibility = View.VISIBLE
             if(!isShowMain)return
             showSearchZoneAnimation()
-            isShowMain = false
+            false
         }
         iInfo?.getSearchStatus(isShowMain)
     }
@@ -243,10 +240,16 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
 
     private fun requestData(){
         mPresenter.getCateDetailList()
+        mPresenter.getDailyAlbums()
     }
 
     override fun setCateDetailList(categories: ArrayList<Category>) {
-        Log.e(TAG,"${categories.size}")
+        categoryAdapter!!.setData(categories)
+    }
+
+    override fun setDailyAlbums(albums: ArrayList<Album>) {
+        dailySupplyAdapter!!.setData(albums)
+        Log.e(TAG,"${albums.size}")
     }
 
     override fun showError(errorMsg: String) {

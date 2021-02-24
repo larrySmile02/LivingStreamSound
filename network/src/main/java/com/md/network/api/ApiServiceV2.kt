@@ -9,7 +9,7 @@ interface ApiServiceV2 {
     fun getCategoriesList(): Observable<ArrayList<Category>>
 
     @GET("daily")
-    fun getDailyAlbums(): List<Album>
+    fun getDailyAlbums(): Observable<ArrayList<Album>>
 
     @GET("category/{id}")
     fun getCategoryInfo(@Path("id") id: Int): Category
