@@ -1,6 +1,5 @@
 package com.md.mainpage.ui
 
-import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Bundle
 import android.text.Editable
@@ -21,11 +20,11 @@ import com.md.mainpage.`interface`.MainPageContract
 import com.md.mainpage.adapter.CategoryAdapter
 import com.md.mainpage.adapter.MainDailySupplyAdapter
 import com.md.mainpage.model.MainPageModel
-import com.md.mainpage.model.bean.FakeCategoryBean
 import com.md.mainpage.presenter.MainPagePresenter
 import com.md.mainpage.utils.Utils
 import com.md.network.api.Album
 import com.md.network.api.Category
+import com.md.network.api.ICategory
 import kotlinx.android.synthetic.main.fragment_mainpage.*
 
 const val TAG = "MainPageFragment"
@@ -46,7 +45,7 @@ const val HEIGHT_SEARCH = 36f
  * */
 class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatcher, View.OnClickListener ,MainPageContract.View{
     var mainPageModel: MainPageModel? = null
-    var categoryData: List<Category> = ArrayList()
+    var categoryData: List<ICategory> = ArrayList()
     private var categoryAdapter: CategoryAdapter? = null
     private var dailySupplyData: List<Album> = ArrayList()
     private var dailySupplyAdapter: MainDailySupplyAdapter? = null
@@ -239,12 +238,16 @@ class MainPageFragment : Fragment(), TextView.OnEditorActionListener, TextWatche
     }
 
     private fun requestData(){
-        mPresenter.getCateDetailList()
+        mPresenter.getLoacalCategoryList()
         mPresenter.getDailyAlbums()
     }
 
-    override fun setCateDetailList(categories: ArrayList<Category>) {
-        categoryAdapter!!.setData(categories)
+//    override fun setCateDetailList(categories: ArrayList<Category>) {
+//        categoryAdapter!!.setData(categories)
+//    }
+
+    override fun setCateDetailList(categories: ArrayList<ICategory>) {
+        categoryAdapter!!.setData(categories as ArrayList<Category>)
     }
 
     override fun setDailyAlbums(albums: ArrayList<Album>) {

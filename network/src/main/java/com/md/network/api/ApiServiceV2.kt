@@ -6,7 +6,7 @@ import retrofit2.http.Path
 
 interface ApiServiceV2 {
     @GET("categories")
-    fun getCategoriesList(): Observable<ArrayList<Category>>
+    fun getCategoriesList(): Observable<ArrayList<ICategory>>
 
     @GET("daily")
     fun getDailyAlbums(): Observable<ArrayList<Album>>

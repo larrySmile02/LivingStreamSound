@@ -11,13 +11,15 @@ import com.bumptech.glide.Glide
 import com.md.mainpage.R
 import com.md.mainpage.model.bean.FakeCategoryBean
 import com.md.network.api.Category
+import com.md.network.api.ICategory
+import com.md.network.api.LocalCategory
 
 /**
  * @author liyue
  * created 2021/2/16
  * desc 首页面分类部分adapter
  */
-class CategoryAdapter(var context: Context,var mData:List<Category>):RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(var context: Context,var mData:List<ICategory>):RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         var view= LayoutInflater.from(context).inflate(R.layout.adapter_category,parent,false)
@@ -29,14 +31,14 @@ class CategoryAdapter(var context: Context,var mData:List<Category>):RecyclerVie
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        var curBean = mData[position]
-        holder.icon?.let { Glide.with(context).load(curBean.logo).into(it) }
-//        holder.icon!!.setImageDrawable(context.resources.getDrawable(curBean.icon))
+        var curBean = mData[position] as LocalCategory
+//        holder.icon?.let { Glide.with(context).load(curBean.logo).into(it) }
+        holder.icon!!.setImageDrawable(context.resources.getDrawable(curBean.localRes))
         holder.title!!.text=curBean.name
     }
 
     //应该使用DiffUtil的，以后再改
-    fun setData(list :List<Category> ){
+    fun setData(list: ArrayList<Category>){
         mData=list
         notifyDataSetChanged()
     }

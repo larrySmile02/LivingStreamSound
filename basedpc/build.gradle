@@ -62,6 +62,7 @@ dependencies {
     api "com.squareup.okhttp3:okhttp:3.12.0" //网络
     api "com.google.code.gson:gson:2.8.6" //数据解析
     api "com.qw:soulpermission:1.3.0"     // 权限
+    api "com.squareup.okhttp3:logging-interceptor:3.12.0"//日志
 
     api "com.github.bumptech.glide:glide:4.10.0"  // 图片
     api "jp.wasabeef:glide-transformations:4.1.0" // 图片形状

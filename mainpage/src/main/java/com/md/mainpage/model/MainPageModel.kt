@@ -2,6 +2,11 @@ package com.md.mainpage.model
 
 import com.md.mainpage.R
 import com.md.mainpage.model.bean.FakeCategoryBean
+import com.md.network.api.Category
+import com.md.network.api.ICategory
+import com.md.network.api.LocalCategory
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.internal.operators.observable.ObservableObserveOn
 
 /**
  * @author liyue
@@ -10,36 +15,19 @@ import com.md.mainpage.model.bean.FakeCategoryBean
  */
 class MainPageModel {
 
-    private val categoryBeans = ArrayList<FakeCategoryBean>()
-    private var mDailyData = ArrayList<FakeCategoryBean>()
+    private val categoryBeans =  ArrayList<ICategory>()
     init {
-        categoryBeans.add(FakeCategoryBean("圣经朗读", R.drawable.main_read_bible))
-        categoryBeans.add(FakeCategoryBean("诗歌合集", R.drawable.main_songs))
-        categoryBeans.add(FakeCategoryBean("圣经解读", R.drawable.main_explain_bible))
-        categoryBeans.add(FakeCategoryBean("真理", R.drawable.main_truth))
-        categoryBeans.add(FakeCategoryBean("名家名作", R.drawable.main_famous_work))
-        categoryBeans.add(FakeCategoryBean("信的故事", R.drawable.main_trust_story))
-        categoryBeans.add(FakeCategoryBean("儿童", R.drawable.main_baby))
-        categoryBeans.add(FakeCategoryBean("更多", R.drawable.main_more_category))
-
-        mDailyData.add(FakeCategoryBean("今日供应1", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("三旧一新1", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("鱼和饼1", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("今日供应2", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("三旧一新2", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("鱼和饼2", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("今日供应3", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("三旧一新3", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("鱼和饼3", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("今日供应4", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("三旧一新4", R.drawable.main_daily_icon2))
-        mDailyData.add(FakeCategoryBean("鱼和饼4", R.drawable.main_daily_icon2))
+        categoryBeans.add(LocalCategory(R.drawable.main_read_bible,"圣经朗读","1",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_songs,"诗歌合集","2",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_explain_bible,"圣经解读","3",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_truth,"真理","4",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_famous_work,"名家名作","5",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_trust_story,"信的故事","6",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_baby,"儿童","7",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_more_category,"更多","8",""))
     }
-    fun getMainCategory():List<FakeCategoryBean> {
+    fun getMainCategory():ArrayList<ICategory> {
         return categoryBeans
     }
 
-    fun getMainDailySupplyData():List<FakeCategoryBean>{
-        return mDailyData
-    }
 }
