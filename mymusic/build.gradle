@@ -39,5 +39,6 @@ dependencies {
 
     implementation project(':livingwidget')
     implementation project(':basedpc')
+    implementation project(':playDownload')
 
 }
