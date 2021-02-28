@@ -18,7 +18,7 @@ import com.md.basedpc.permission.listener.OnPermissionListener
 import com.md.livingstreamsound.R
 import com.md.livingstreamsound.test.Fragment3
 import com.md.livingstreamsound.test.Fragment4
-import com.md.mainpage.`interface`.IMainInfo
+import com.md.mainpage.interfaces.IMainInfo
 import com.md.mainpage.ui.MainPageFragment
 import com.md.mymusic.MyMusicFragment
 import kotlinx.android.synthetic.main.activity_main.*

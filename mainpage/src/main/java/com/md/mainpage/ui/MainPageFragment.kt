@@ -15,8 +15,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.md.basedpc.DisplayUtil
 import com.md.mainpage.R
-import com.md.mainpage.`interface`.IMainInfo
-import com.md.mainpage.`interface`.MainPageContract
+import com.md.mainpage.interfaces.IMainInfo
+import com.md.mainpage.interfaces.MainPageContract
 import com.md.mainpage.adapter.CategoryAdapter
 import com.md.mainpage.adapter.MainDailySupplyAdapter
 import com.md.mainpage.model.MainPageModel

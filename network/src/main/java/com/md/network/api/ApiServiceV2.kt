@@ -12,12 +12,12 @@ interface ApiServiceV2 {
     fun getDailyAlbums(): Observable<ArrayList<Album>>
 
     @GET("category/{id}")
-    fun getCategoryInfo(@Path("id") id: Int): Category
+    fun getCategoryInfo(@Path("id") id: Int): Observable<Category>
 
     @GET("album/{id}")
-    fun getAlbumInfo(@Path("id") id: Int): Album
+    fun getAlbumInfo(@Path("id") id: Int): Observable<Album>
 
     @GET("audio/{id}")
-    fun getAudioInfo(@Path("id") id: Int): Audio
+    fun getAudioInfo(@Path("id") id: Int): Observable<Audio>
 
 }

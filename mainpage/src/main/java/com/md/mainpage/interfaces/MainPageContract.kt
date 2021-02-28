@@ -1,9 +1,8 @@
-package com.md.mainpage.`interface`
+package com.md.mainpage.interfaces
 
 import com.md.basedpc.base.IBaseView
 import com.md.basedpc.base.IPresenter
 import com.md.network.api.Album
-import com.md.network.api.Category
 import com.md.network.api.ICategory
 
 interface MainPageContract {

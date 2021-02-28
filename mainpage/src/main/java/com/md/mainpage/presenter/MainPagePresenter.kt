@@ -1,7 +1,7 @@
 package com.md.mainpage.presenter
 
 import com.md.basedpc.base.BasePresenter
-import com.md.mainpage.`interface`.MainPageContract
+import com.md.mainpage.interfaces.MainPageContract
 import com.md.mainpage.model.MainPageModel
 import com.md.mainpage.model.MainPageModelV2
 

@@ -1,4 +1,4 @@
-package com.md.mainpage.`interface`
+package com.md.mainpage.interfaces
 /**
  * @author liyue
  * created 2021/2/16
