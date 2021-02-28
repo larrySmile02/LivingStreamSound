@@ -150,8 +150,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
         }
 
         public void updateDownloading(final int status, final long sofar, final long total) {
-            final float percent = sofar
-                    / (float) total;
+            final float percent = sofar / (float) total;
             taskPb.setMax(100);
             taskPb.setProgress((int) (percent * 100));
 
@@ -200,7 +199,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag.id != task.getId()) {
                     return null;
                 }
-
                 return tag;
             }
 
@@ -235,9 +233,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
-                tag.updateDownloading(FileDownloadStatus.connected, soFarBytes
-                        , totalBytes);
+                tag.updateDownloading(FileDownloadStatus.connected, soFarBytes, totalBytes);
                 tag.taskStatusTv.setText(R.string.tasks_manager_demo_status_connected);
             }
 
@@ -248,9 +244,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
-                tag.updateDownloading(FileDownloadStatus.progress, soFarBytes
-                        , totalBytes);
+                tag.updateDownloading(FileDownloadStatus.progress, soFarBytes, totalBytes);
             }
 
             @Override
@@ -273,7 +267,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
                 tag.updateNotDownloaded(FileDownloadStatus.paused, soFarBytes, totalBytes);
                 tag.taskStatusTv.setText(R.string.tasks_manager_demo_status_paused);
                 TasksManager.getImpl().removeTaskForViewHolder(task.getId());
@@ -286,7 +279,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
                 tag.updateDownloaded();
                 TasksManager.getImpl().removeTaskForViewHolder(task.getId());
             }
@@ -626,7 +618,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
         public TasksManagerDBOpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
-
 
         @Override
         public void onCreate(SQLiteDatabase db) {
