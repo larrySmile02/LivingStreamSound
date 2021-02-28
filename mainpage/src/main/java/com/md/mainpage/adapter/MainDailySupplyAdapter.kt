@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.md.mainpage.R
 import com.md.network.api.Album
 
@@ -25,7 +27,10 @@ class MainDailySupplyAdapter (var context: Context, var mData:List<Album>): Recy
 
     override fun onBindViewHolder(holder: DailySupplyViewHolder, position: Int) {
         var curBean = mData[position]
-        holder.icon?.let { Glide.with(context).load(curBean.cover).into(it) }
+        holder.icon?.let { Glide.with(context)
+                .load(curBean.cover)
+                .apply(RequestOptions.bitmapTransform( RoundedCorners(10)))
+                .into(it) }
         holder.title!!.text=curBean.name
 
     }
