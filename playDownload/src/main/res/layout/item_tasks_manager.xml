@@ -23,6 +23,7 @@
     android:padding="15dp">
 
     <LinearLayout
+        android:id="@+id/root_download"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1.0"
@@ -53,7 +54,6 @@
             android:layout_marginTop="5dp"
             android:layout_weight="1.0" />
 
-
     </LinearLayout>
 
     <Button
@@ -64,6 +64,5 @@
         android:text="Start"
         android:textColor="@android:color/black"
         android:textSize="14sp" />
-
 
 </LinearLayout>

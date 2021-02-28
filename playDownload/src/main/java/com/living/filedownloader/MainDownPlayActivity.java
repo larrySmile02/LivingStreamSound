@@ -12,7 +12,7 @@ import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
 import com.liulishuo.filedownloader.util.FileDownloadLog;
 
 /**
- * Created by Jacksgong on 12/17/15.
+ * Created by wangq
  */
 public class MainDownPlayActivity extends AppCompatActivity {
 
