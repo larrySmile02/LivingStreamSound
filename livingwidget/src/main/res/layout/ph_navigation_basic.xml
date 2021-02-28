@@ -85,7 +85,7 @@
                 android:paddingLeft="80dp"
                 android:paddingRight="80dp"
                 android:text=""
-                android:textColor="@color/c_ui_333333"
+                android:textColor="#262626"
                 android:textSize="51mm"
                 android:textStyle="bold" />
 

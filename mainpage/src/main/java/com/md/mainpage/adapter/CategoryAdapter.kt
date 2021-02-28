@@ -1,15 +1,19 @@
 package com.md.mainpage.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.md.mainpage.R
 import com.md.mainpage.model.bean.FakeCategoryBean
+import com.md.mainpage.ui.MainCategoryActivity
 import com.md.network.api.Category
 import com.md.network.api.ICategory
 import com.md.network.api.LocalCategory
@@ -35,6 +39,10 @@ class CategoryAdapter(var context: Context,var mData:List<ICategory>):RecyclerVi
 //        holder.icon?.let { Glide.with(context).load(curBean.logo).into(it) }
         holder.icon!!.setImageDrawable(context.resources.getDrawable(curBean.localRes))
         holder.title!!.text=curBean.name
+        holder.root!!.setOnClickListener {
+            if (position==mData.size-1)
+                context.startActivity(Intent(context as AppCompatActivity,MainCategoryActivity::class.java))
+        }
     }
 
     //应该使用DiffUtil的，以后再改
@@ -46,9 +54,11 @@ class CategoryAdapter(var context: Context,var mData:List<ICategory>):RecyclerVi
     class CategoryViewHolder : RecyclerView.ViewHolder {
         var title:TextView?=null
         var icon:ImageView?=null
+        var root:LinearLayout?=null
         constructor(itemView: View):super(itemView){
             title=itemView.findViewById(R.id.tvCategory)
             icon=itemView.findViewById(R.id.ivCategory)
+            root=itemView.findViewById(R.id.rootCategoryMore)
         }
     }
 

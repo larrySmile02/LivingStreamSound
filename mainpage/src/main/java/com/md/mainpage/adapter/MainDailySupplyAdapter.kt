@@ -9,10 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.md.mainpage.R
-import com.md.mainpage.model.bean.FakeCategoryBean
 import com.md.network.api.Album
 
-class MainDailySupplyAdapter (var context: Context, var mData:List<Album>): RecyclerView.Adapter<MainDailySupplyAdapter.DailySupplyViewHolder>() {
+class MainDailySupplyAdapter (var context: Context, var mData:List<Album>): RecyclerView.Adapter<MainDailySupplyAdapter.DailySupplyViewHolder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DailySupplyViewHolder {
@@ -28,6 +27,7 @@ class MainDailySupplyAdapter (var context: Context, var mData:List<Album>): Recy
         var curBean = mData[position]
         holder.icon?.let { Glide.with(context).load(curBean.cover).into(it) }
         holder.title!!.text=curBean.name
+
     }
 
     //应该使用DiffUtil的，以后再加
@@ -44,4 +44,6 @@ class MainDailySupplyAdapter (var context: Context, var mData:List<Album>): Recy
             icon = itemView.findViewById(R.id.ivDailyMain)
         }
     }
+
+
 }
