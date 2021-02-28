@@ -9,7 +9,7 @@
 
     <application>
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainDownPlayActivity" />
         <activity android:name=".TasksAudioManagerActivity" />
 
     </application>
