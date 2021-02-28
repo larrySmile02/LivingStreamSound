@@ -5,7 +5,7 @@ open interface ICategory
 //首页写死数据，后续网络请求
 data class LocalCategory(val localRes: Int,
                          val name: String,
-                         val id: String,
+                         val id: Int,
                          val logo: String):ICategory
 
 data class Category(

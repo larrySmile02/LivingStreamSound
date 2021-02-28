@@ -17,14 +17,14 @@ class MainPageModel {
 
     private val categoryBeans =  ArrayList<ICategory>()
     init {
-        categoryBeans.add(LocalCategory(R.drawable.main_read_bible,"圣经朗读","1",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_songs,"诗歌合集","2",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_explain_bible,"圣经解读","3",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_truth,"真理","4",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_famous_work,"名家名作","5",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_trust_story,"信的故事","6",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_baby,"儿童","7",""))
-        categoryBeans.add(LocalCategory(R.drawable.main_more_category,"更多","8",""))
+        categoryBeans.add(LocalCategory(R.drawable.main_read_bible,"圣经朗读",1,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_songs,"诗歌合集",2,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_explain_bible,"圣经解读",3,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_truth,"真理",4,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_famous_work,"名家名作",5,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_trust_story,"信的故事",6,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_baby,"儿童",7,""))
+        categoryBeans.add(LocalCategory(R.drawable.main_more_category,"更多",8,""))
     }
     fun getMainCategory():ArrayList<ICategory> {
         return categoryBeans

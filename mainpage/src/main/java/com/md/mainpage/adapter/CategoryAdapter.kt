@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.md.mainpage.R
 import com.md.mainpage.model.bean.FakeCategoryBean
+import com.md.mainpage.ui.CategoryDetailActivity
 import com.md.mainpage.ui.MainCategoryActivity
 import com.md.network.api.Category
 import com.md.network.api.ICategory
@@ -42,6 +43,8 @@ class CategoryAdapter(var context: Context,var mData:List<ICategory>):RecyclerVi
         holder.root!!.setOnClickListener {
             if (position==mData.size-1)
                 context.startActivity(Intent(context as AppCompatActivity,MainCategoryActivity::class.java))
+            else
+                CategoryDetailActivity.gotoCategoryDetail(context as AppCompatActivity,curBean.name,curBean.id)
         }
     }
 
