@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.liulishuo.filedownloader.demo.MainDownPlayActivity
+import com.living.filedownloader.MainDownPlayActivity
 import com.md.livingstreamsound.R
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -39,7 +39,7 @@ class SplashActivity:AppCompatActivity(),Runnable ,View.OnClickListener{
             }
 
             R.id.btnDownload->{
-                val intent = Intent(this,MainDownPlayActivity::class.java)
+                val intent = Intent(this, MainDownPlayActivity::class.java)
                 startActivity(intent)
             }
 

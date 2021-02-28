@@ -56,6 +56,7 @@ dependencies {
     implementation project(':livingwidget')
     implementation project(':network')
     implementation project(':playDownload')
+    implementation project(path: ':playDownload')
 
 
 }

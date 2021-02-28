@@ -19,7 +19,7 @@ import com.liulishuo.filedownloader.util.FileDownloadLog;
 /**
  * Created by Jacksgong on 12/17/15.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainDownPlayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
