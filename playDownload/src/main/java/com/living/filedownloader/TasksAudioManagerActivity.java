@@ -42,6 +42,7 @@ import com.liulishuo.filedownloader.FileDownloadSampleListener;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.model.FileDownloadStatus;
 import com.liulishuo.filedownloader.util.FileDownloadUtils;
+import com.living.player.VideoActivity;
 
 import java.io.File;
 import java.lang.ref.WeakReference;
@@ -49,7 +50,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Jacksgong on 1/9/16.
+ * Created by wangq
  */
 public class TasksAudioManagerActivity extends AppCompatActivity {
 
@@ -176,12 +177,14 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
             taskActionBtn.setText(R.string.pause);
         }
 
+        private View root_download;
         private TextView taskNameTv;
         private TextView taskStatusTv;
         private ProgressBar taskPb;
         private Button taskActionBtn;
 
         private void assignViews() {
+            root_download = findViewById(R.id.root_download);
             taskNameTv = (TextView) findViewById(R.id.task_name_tv);
             taskStatusTv = (TextView) findViewById(R.id.task_status_tv);
             taskPb = (ProgressBar) findViewById(R.id.task_pb);
@@ -209,9 +212,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
-                tag.updateDownloading(FileDownloadStatus.pending, soFarBytes
-                        , totalBytes);
+                tag.updateDownloading(FileDownloadStatus.pending, soFarBytes, totalBytes);
                 tag.taskStatusTv.setText(R.string.tasks_manager_demo_status_pending);
             }
 
@@ -222,7 +223,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
                 tag.taskStatusTv.setText(R.string.tasks_manager_demo_status_started);
             }
 
@@ -309,7 +309,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
 
                     task.start();
                 } else if (action.equals(v.getResources().getString(R.string.delete))) {
-                    // to delete
+//                    // to delete
                     new File(TasksManager.getImpl().get(holder.position).getPath()).delete();
                     holder.taskActionBtn.setEnabled(true);
                     holder.updateNotDownloaded(FileDownloadStatus.INVALID_STATUS, 0, 0);
@@ -325,14 +325,25 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                             .inflate(R.layout.item_tasks_manager, parent, false));
 
             holder.taskActionBtn.setOnClickListener(taskActionOnClickListener);
+            holder.root_download.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TaskItemViewHolder holder = (TaskItemViewHolder) view.getTag();
+
+//                    String urlPath = TasksManager.getImpl().get(holder.position).getPath();
+                    String urlPath = Constant.BIG_FILE_URLS[0];
+                    Context context = view.getContext();
+                    context.startActivity(VideoActivity.newIntent(context, urlPath, "测试播放"));
+                }
+            });
             return holder;
         }
 
         @Override
         public void onBindViewHolder(TaskItemViewHolder holder, int position) {
             final TasksManagerModel model = TasksManager.getImpl().get(position);
-
             holder.update(model.getId(), position);
+            holder.root_download.setTag(holder);
             holder.taskActionBtn.setTag(holder);
             holder.taskNameTv.setText(model.getName());
             TasksManager.getImpl().updateViewHolder(holder.id, holder);

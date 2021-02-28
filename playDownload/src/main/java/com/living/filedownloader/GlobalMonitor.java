@@ -22,8 +22,9 @@ import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
 import com.liulishuo.filedownloader.FileDownloadMonitor;
 
+
 /**
- * Created by Jacksgong on 1/19/16.
+ * Created by wangq
  */
 public class GlobalMonitor implements FileDownloadMonitor.IMonitor {
     private volatile int markStart;
