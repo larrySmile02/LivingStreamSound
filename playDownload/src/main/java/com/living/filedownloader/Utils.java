@@ -13,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.liulishuo.filedownloader.demo;
+package com.living.filedownloader;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;

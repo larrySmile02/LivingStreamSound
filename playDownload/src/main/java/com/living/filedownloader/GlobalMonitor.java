@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.liulishuo.filedownloader.demo;
+package com.living.filedownloader;
 
 import android.util.Log;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.liulishuo.filedownloader.demo;
+package com.living.filedownloader;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -150,8 +150,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
         }
 
         public void updateDownloading(final int status, final long sofar, final long total) {
-            final float percent = sofar
-                    / (float) total;
+            final float percent = sofar / (float) total;
             taskPb.setMax(100);
             taskPb.setProgress((int) (percent * 100));
 
@@ -169,7 +168,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                     taskStatusTv.setText(R.string.tasks_manager_demo_status_progress);
                     break;
                 default:
-                    taskStatusTv.setText(DemoApplication.CONTEXT.getString(
+                    taskStatusTv.setText(Constant.CONTEXT.getString(
                             R.string.tasks_manager_demo_status_downloading, status));
                     break;
             }
@@ -200,7 +199,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag.id != task.getId()) {
                     return null;
                 }
-
                 return tag;
             }
 
@@ -235,9 +233,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
-                tag.updateDownloading(FileDownloadStatus.connected, soFarBytes
-                        , totalBytes);
+                tag.updateDownloading(FileDownloadStatus.connected, soFarBytes, totalBytes);
                 tag.taskStatusTv.setText(R.string.tasks_manager_demo_status_connected);
             }
 
@@ -248,9 +244,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
-                tag.updateDownloading(FileDownloadStatus.progress, soFarBytes
-                        , totalBytes);
+                tag.updateDownloading(FileDownloadStatus.progress, soFarBytes, totalBytes);
             }
 
             @Override
@@ -273,7 +267,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
                 tag.updateNotDownloaded(FileDownloadStatus.paused, soFarBytes, totalBytes);
                 tag.taskStatusTv.setText(R.string.tasks_manager_demo_status_paused);
                 TasksManager.getImpl().removeTaskForViewHolder(task.getId());
@@ -286,7 +279,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                 if (tag == null) {
                     return;
                 }
-
                 tag.updateDownloaded();
                 TasksManager.getImpl().removeTaskForViewHolder(task.getId());
             }
@@ -568,7 +560,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
         private final SQLiteDatabase db;
 
         private TasksManagerDBController() {
-            TasksManagerDBOpenHelper openHelper = new TasksManagerDBOpenHelper(DemoApplication.CONTEXT);
+            TasksManagerDBOpenHelper openHelper = new TasksManagerDBOpenHelper(Constant.CONTEXT);
 
             db = openHelper.getWritableDatabase();
         }
@@ -609,7 +601,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
 
             TasksManagerModel model = new TasksManagerModel();
             model.setId(id);
-            model.setName(DemoApplication.CONTEXT.getString(R.string.tasks_manager_demo_name, id));
+            model.setName(Constant.CONTEXT.getString(R.string.tasks_manager_demo_name, id));
             model.setUrl(url);
             model.setPath(path);
 
@@ -626,7 +618,6 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
         public TasksManagerDBOpenHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
-
 
         @Override
         public void onCreate(SQLiteDatabase db) {

@@ -1,11 +1,16 @@
-package com.liulishuo.filedownloader.demo;
+package com.living.filedownloader;
+
+import android.app.Application;
 
 /**
  * Created by Jacksgong on 12/19/15.
  */
-public interface Constant {
+public class Constant {
 
-    String[] BIG_FILE_URLS = {
+    public static Application CONTEXT;
+
+
+    public static String[] BIG_FILE_URLS = {
             "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk",
             "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk",
             "http://cdn.llsapp.com/android/LLS-v4.0-595-20160908-143200.apk",
