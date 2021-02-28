@@ -1,4 +1,4 @@
-package com.liulishuo.filedownloader.demo;
+package com.living.filedownloader;
 
 import android.app.Application;
 import android.content.Context;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // for demo.
-        DemoApplication.CONTEXT = getApplicationContext();
+        Constant.CONTEXT = (Application) getApplicationContext();
         // just for open the log in this demo project.
         FileDownloadLog.NEED_LOG = BuildConfig.DEBUG;
         /**
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
          * by below code, so please do not worry about performance.
          * @see FileDownloader#init(Context)
          */
-        FileDownloader.setupOnApplicationOnCreate((Application) DemoApplication.CONTEXT)
+        FileDownloader.setupOnApplicationOnCreate((Application) Constant.CONTEXT)
                 .connectionCreator(new FileDownloadUrlConnection
                         .Creator(new FileDownloadUrlConnection.Configuration()
                         .connectTimeout(15_000) // set connection timeout.

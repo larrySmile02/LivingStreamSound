@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.liulishuo.filedownloader.demo;
+package com.living.filedownloader;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -169,7 +169,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
                     taskStatusTv.setText(R.string.tasks_manager_demo_status_progress);
                     break;
                 default:
-                    taskStatusTv.setText(DemoApplication.CONTEXT.getString(
+                    taskStatusTv.setText(Constant.CONTEXT.getString(
                             R.string.tasks_manager_demo_status_downloading, status));
                     break;
             }
@@ -568,7 +568,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
         private final SQLiteDatabase db;
 
         private TasksManagerDBController() {
-            TasksManagerDBOpenHelper openHelper = new TasksManagerDBOpenHelper(DemoApplication.CONTEXT);
+            TasksManagerDBOpenHelper openHelper = new TasksManagerDBOpenHelper(Constant.CONTEXT);
 
             db = openHelper.getWritableDatabase();
         }
@@ -609,7 +609,7 @@ public class TasksAudioManagerActivity extends AppCompatActivity {
 
             TasksManagerModel model = new TasksManagerModel();
             model.setId(id);
-            model.setName(DemoApplication.CONTEXT.getString(R.string.tasks_manager_demo_name, id));
+            model.setName(Constant.CONTEXT.getString(R.string.tasks_manager_demo_name, id));
             model.setUrl(url);
             model.setPath(path);
 
