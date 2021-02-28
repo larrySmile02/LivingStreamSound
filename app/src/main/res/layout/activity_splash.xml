@@ -4,25 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Button
-        android:id="@+id/btnMain"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_height="50dp"
-        android:text="主页面"/>
-    <Button
-        android:id="@+id/btnDownload"
-        app:layout_constraintTop_toBottomOf="@+id/btnMain"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_height="50dp"
-        android:text="下载播放"/>
-
 
     <TextView
         app:layout_constraintTop_toTopOf="parent"

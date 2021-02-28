@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.md.livingstreamsound.R
 import kotlinx.android.synthetic.main.activity_splash.*
 
-class SplashActivity:AppCompatActivity(),Runnable ,View.OnClickListener{
+class SplashActivity:AppCompatActivity(),Runnable {
 
    companion object{
        @JvmStatic
@@ -20,9 +20,7 @@ class SplashActivity:AppCompatActivity(),Runnable ,View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        btnMain.setOnClickListener(this)
-        btnDownload.setOnClickListener(this)
-//        mHandler.postDelayed(this,2000)
+        mHandler.postDelayed(this,2000)
     }
 
     override fun run() {
@@ -31,20 +29,5 @@ class SplashActivity:AppCompatActivity(),Runnable ,View.OnClickListener{
         finish()
     }
 
-    override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.btnMain->{
-                val intent = Intent(this,MainActivityKt::class.java)
-                startActivity(intent)
-            }
 
-            R.id.btnDownload->{
-
-//                val intent = Intent(this,MainDownPlayActivity::class.java)
-
-                startActivity(intent)
-            }
-
-        }
-    }
 }

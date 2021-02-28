@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LivingStreamSound</string>
+    <string name="app_name">水流之声</string>
     <string name="living_sound">水流之声</string>
     <string name="living_tap_exit">再次点击返回键退出水流之声</string>
     <string name="living_mainpage_title">首页</string>
