@@ -4,6 +4,6 @@ include ':mymusic'
 include ':basedpc'
 include ':mainpage'
 include ':app'
-include ':playDownload'
+//include ':playDownload'
 
 rootProject.name = "LivingStreamSound"

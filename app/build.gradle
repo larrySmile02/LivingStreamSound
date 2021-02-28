@@ -55,8 +55,8 @@ dependencies {
     implementation project(':mymusic')
     implementation project(':livingwidget')
     implementation project(':network')
-    implementation project(':playDownload')
-    implementation project(path: ':playDownload')
+//    implementation project(':playDownload')
+//    implementation project(path: ':playDownload')
 
 
 }
