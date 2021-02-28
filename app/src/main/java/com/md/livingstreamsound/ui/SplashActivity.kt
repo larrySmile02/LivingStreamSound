@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+
 import com.md.livingstreamsound.R
 import kotlinx.android.synthetic.main.activity_splash.*
 
@@ -38,7 +39,9 @@ class SplashActivity:AppCompatActivity(),Runnable ,View.OnClickListener{
             }
 
             R.id.btnDownload->{
+
 //                val intent = Intent(this,MainDownPlayActivity::class.java)
+
                 startActivity(intent)
             }
 

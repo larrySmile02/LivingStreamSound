@@ -3,14 +3,9 @@ package com.living.filedownloader;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.liulishuo.filedownloader.FileDownloadMonitor;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
@@ -19,13 +14,12 @@ import com.liulishuo.filedownloader.util.FileDownloadLog;
 /**
  * Created by Jacksgong on 12/17/15.
  */
-public class MainActivity extends AppCompatActivity {
+public class MainDownPlayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_download_play_main);
         // for demo.
         Constant.CONTEXT = (Application) getApplicationContext();
         // just for open the log in this demo project.

@@ -52,7 +52,7 @@ class MainActivityKt:AppCompatActivity(),Runnable, ViewPager.OnPageChangeListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_download_play_main)
         initView()
         PermissionHelper.requestNecessaryPermission(this,true)
 
