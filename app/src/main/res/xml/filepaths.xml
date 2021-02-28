@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <files-path
+            name="download"
+            path="" />
+        <external-path
+            name="files_root"
+            path="Android/data/com.yxt.phoenix/" />
+        <external-path
+            name="external_storage_root"
+            path="." />
+        <cache-path name="my_cache" />
+    </paths>
+</resources>
