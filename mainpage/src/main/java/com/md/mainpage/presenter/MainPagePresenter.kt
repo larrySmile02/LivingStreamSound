@@ -1,10 +1,11 @@
 package com.md.mainpage.presenter
 
+import android.util.Log
 import com.md.basedpc.base.BasePresenter
 import com.md.mainpage.interfaces.MainPageContract
 import com.md.mainpage.model.MainPageModel
 import com.md.mainpage.model.MainPageModelV2
-
+const val TAG="MainPagePresenter"
 class MainPagePresenter : BasePresenter<MainPageContract.View>(), MainPageContract.Presenter {
 
     //首页面分类先用本地数据，后续新开接口了再接入
@@ -27,10 +28,12 @@ class MainPagePresenter : BasePresenter<MainPageContract.View>(), MainPageContra
                 .subscribe({ categories ->
                     mRootView?.apply {
                         setCateDetailList(categories = categories)
+
                     }
                 }, { throwable ->
                     mRootView?.apply {
                         showError(throwable.toString())
+
                     }
                 })
 
@@ -43,10 +46,12 @@ class MainPagePresenter : BasePresenter<MainPageContract.View>(), MainPageContra
                 .subscribe({ albums ->
                     mRootView?.apply {
                         setDailyAlbums(albums)
+                        Log.e(TAG,"categories.size=${albums.size}")
                     }
                 }, { throwable ->
                     mRootView?.apply {
                         showError(throwable.toString())
+                        Log.e(TAG,throwable.toString())
                     }
                 })
 
